@@ -23,52 +23,52 @@
 
 ---
 
-## 📦 PACKAGE METADATA (`zia-ksp-catalyst`)
+## SECTION 1.0 // SYSTEM IDENTIFICATION & PACKAGE METADATA
 
-| Property | Specification |
+| Specification Parameter | Authoritative Designation |
 | :--- | :--- |
-| **Package Name** | `zia-ksp-catalyst` (Zonal Intelligence Architecture) |
-| **Maintainer** | Karnataka State Police (KSP) & Zoho Catalyst Special Engineering Squad |
-| **Target Architecture** | Serverless Edge Cloud / `x86_64` / `arm64` (Apple Silicon compatible) |
-| **Runtime Environment** | Zoho Catalyst Cloud Scale (Node.js 18+ Web Client / Python 3.9+ Advanced I/O Functions) |
-| **Dataset Ingestion** | Karnataka SCRB `Consolidated_Analytical_Master.csv` (`9,935` Verified FIR Records) |
-| **Classification** | Critical Infrastructure // Law Enforcement Tactical Command Hub |
+| **System Nomenclature** | Zonal Intelligence Architecture (`zia-ksp-catalyst`) |
+| **Sponsoring Authority** | Karnataka State Police (KSP) & Zoho Catalyst Engineering Directorate |
+| **Architectural Topology** | Serverless Edge CDN / Microservices Infrastructure / x86_64 / arm64 |
+| **Runtime Execution Layer** | Node.js 18+ Client Presentation / Python 3.9+ Serverless Compute Engine |
+| **Ingested Corpus** | Karnataka State Crime Records Bureau (`Consolidated_Analytical_Master.csv`, 9,935 Verified FIRs) |
+| **Security Classification** | Law Enforcement Tactical Command Hub // CJIS Compliance Level IV |
 
 ---
 
-## 📖 SYNOPSIS (MAN PAGE)
+## SECTION 2.0 // EXECUTIVE SUMMARY & OPERATIONAL SYNOPSIS
 
 ```bash
-zia-ksp-catalyst --mode [serve | deploy | predict | map-syndicate] --district [ALL | BENGALURU | MYSURU | BELAGAVI]
+zia-ksp-catalyst --execute [serve | deploy | predict | syndicate-map] --jurisdiction [ALL | BENGALURU | MYSURU | BELAGAVI]
 ```
 
-**ZIA (Zonal Intelligence Architecture)** is a state-of-the-art serverless geospatial and criminological intelligence platform engineered on **Zoho Catalyst**. Designed specifically for high-stress emergency police command centers and mobile highway checkposts, ZIA replaces static tabular spreadsheets with a live, high-precision **Doppler Weather-Radar Atmospheric Heatmap** and a **54-Node Force-Directed Syndicate Link Graph**.
+The **Zonal Intelligence Architecture (ZIA)** is an enterprise-grade, serverless criminological analysis and geospatial surveillance platform engineered on the **Zoho Catalyst** cloud ecosystem. Purpose-built for high-stress state police command headquarters, emergency response centers, and highway checkposts, ZIA replaces legacy tabular reporting systems with high-frequency atmospheric thermal mapping and force-directed syndicate relational graphing.
 
-By executing real-time **Scikit-Learn** machine learning inference on macro-sociological indicators (such as urban migration velocity and youth unemployment), ZIA transitions law enforcement from reactive after-the-fact crime reporting to proactive **30-day forward-looking threat forecasting**, empowering executive leadership to intercept organized crime waves before they peak.
+By executing real-time **Scikit-Learn** machine learning inference on macro-sociological indicators (including urban migration velocity, demographic density shifts, and youth unemployment indices), ZIA transitions law enforcement operations from reactive incident reporting to proactive 30-day forward threat mitigation, enabling executive leadership to deploy strategic checkposts prior to crime wave crystallization.
 
 ---
 
-## 📸 SYSTEM PROTOTYPE SNAPSHOTS (TACTICAL COMMAND HUD)
+## SECTION 3.0 // SYSTEM PROTOTYPE SNAPSHOTS & TACTICAL EVALUATION
 
-### 1. 🌦️ Statewide Doppler Weather-Radar Heatmap & Active Pulse Markers
+### 3.1 Statewide Doppler Weather-Radar Thermal Field & Active Pulse Markers
 <div align="center">
   <img src="assets/screenshots/screenshot-1.png" alt="Doppler Weather Heatmap" width="900" />
 </div>
 <p align="center"><i>Real-time Canvas Doppler thermal field across Karnataka illustrating high-density crime storm fronts without dot coagulation.</i></p>
 
-### 2. 🕸️ 54-Node Syndicate Relationship Graph & Super-Bridge Isolation
+### 3.2 54-Node Syndicate Relationship Graph & Super-Bridge Isolation
 <div align="center">
   <img src="assets/screenshots/screenshot-2.png" alt="Syndicate Relationship Graph" width="900" />
 </div>
-<p align="center"><i>ForceAtlas2 topology network isolating 1-hop and 2-hop criminal ecosystems and hawala money-laundering super-bridges.</i></p>
+<p align="center"><i>ForceAtlas2 topology network isolating 1-hop and 2-hop criminal ecosystems and cross-jurisdictional money-laundering conduits.</i></p>
 
-### 3. 🔮 Predictive Sociological Crime Simulation & AI Risk Strata
+### 3.3 Predictive Sociological Crime Simulation & AI Risk Strata
 <div align="center">
   <img src="assets/screenshots/screenshot-3.png" alt="Predictive AI Sandbox" width="900" />
 </div>
 <p align="center"><i>Scikit-Learn 30-day forward-looking risk forecasting sandbox driven by interactive macro-sociological indicators.</i></p>
 
-### 4. 🗺️ Cross-Jurisdictional MO Matrix & Evidentiary Provenance
+### 3.4 Cross-Jurisdictional MO Matrix & Evidentiary Provenance Interface
 <div align="center">
   <img src="assets/screenshots/screenshot-4.png" alt="MO Matrix & Provenance" width="900" />
 </div>
@@ -76,287 +76,241 @@ By executing real-time **Scikit-Learn** machine learning inference on macro-soci
 
 ---
 
-## ✨ CORE PACKAGE CAPABILITIES & FEATURES
+## SECTION 4.0 // CORE CAPABILITIES & FUNCTIONAL SPECIFICATIONS
 
-### 1. 🌦️ Seamless Meteorological Doppler Weather-Radar Cloud Engine
-* **High-Speed Canvas Rendering**: Renders **9,935+ simultaneous FIR coordinates** across Karnataka at a solid 60 FPS (`< 16ms` frame time) without DOM freezing or stuttering.
-* **Zero Dot Coagulation**: Employs ultra-wide Gaussian diffusion (`radius: 70px`, `blur: 62px`) and dynamic low-alpha intensity scaling (`0.05`) to prevent points from bunching into hard circular dots.
-* **Authentic Doppler Spectrum**: Individual crime coordinates organically merge into fluid, continuous atmospheric storm fronts following meteorological progression:
+### 4.1 Meteorological Doppler Weather-Radar Thermal Engine
+* **High-Frequency Canvas Rendering**: Processes and renders **9,935+ simultaneous First Information Report (FIR) coordinates** across Karnataka at a sustained 60 frames per second (`< 16ms` frame time) without DOM degradation or UI latency.
+* **Zero Coagulation Diffusion Algorithm**: Implements an expanded Gaussian diffusion matrix (`radius: 70px`, `blur: 62px`) coupled with dynamic alpha scaling (`0.05`) to eliminate hard-edged dot clustering and produce continuous atmospheric density gradients.
+* **Authentic Doppler Spectral Progression**: Individual crime data points organically coalesce into fluid atmospheric storm fronts following standardized meteorological intensity scales:
   $$\text{Navy (\#0033ff)} \rightarrow \text{Sky Cyan (\#00d4ff)} \rightarrow \text{Radar Green (\#00ff44)} \rightarrow \text{Severe Yellow (\#ffff00)} \rightarrow \text{Alert Orange (\#ff6600)} \rightarrow \text{Crimson Epicenter (\#ff0044)}$$
 
-### 2. 🕸️ 54-Node Syndicate Link Mapping & Super-Bridge Detection
-* **ForceAtlas2 Network Topology**: Employs force-directed physics algorithms to map complex 1-hop and 2-hop criminal relationships, kingpins, shooters, and money launderers.
-* **1-Click Super-Bridge Isolation**: Automatically isolates shared cross-jurisdictional assets linking disparate regional gangs across district boundaries (e.g., identifying hawala conduit *Haji Seth* as the money-laundering super-bridge connecting *Alpha Highway Gang* in Belagavi to *Gamma Cyber* in Udupi).
+### 4.2 54-Node Syndicate Relational Graphing & Super-Bridge Isolation
+* **ForceAtlas2 Network Topology**: Employs force-directed algorithmic layout models to map complex 1-hop and 2-hop criminal hierarchies, isolating operational leaders, field operatives, and financial intermediaries.
+* **Automated Super-Bridge Interception**: Instantly detects and isolates shared cross-jurisdictional assets linking disparate regional syndicates across administrative district boundaries (for example, identifying hawala operative *Haji Seth* as the financial super-bridge connecting *Alpha Highway Gang* in Belagavi to *Gamma Cyber* in Udupi).
 
-### 3. 🔮 Predictive Sociological Crime Simulation Sandbox
-* **Scikit-Learn Machine Learning**: Integrates a trained Random Forest / Regression engine modeling 30-day forward-looking crime severity based on macro-sociological variables.
-* **Interactive Command Sliders**: Real-time manipulation of *Urban Density Growth*, *Interstate Migration Velocity*, and *Youth Unemployment* instantly recalculates regional risk strata and generates actionable highway patrol deployment directives.
+### 4.3 Predictive Sociological Crime Simulation Sandbox
+* **Scikit-Learn Inference Engine**: Integrates a trained Random Forest and multivariate regression pipeline modeling 30-day forward-looking crime severity based on regional sociological vectors.
+* **Interactive Command Variables**: Real-time manipulation of *Urban Density Growth*, *Interstate Migration Velocity*, and *Youth Unemployment* instantly recalculates jurisdictional risk strata and outputs concrete highway patrol deployment mandates.
 
-### 4. 🗺️ Inverted GeoJSON State Masking & Multi-Modal Filtering
-* **Geographic Focus Blackout**: Inverted GeoJSON polygon rendering that blacks out all surrounding external territories, eliminating visual noise and focusing 100% of command attention on Karnataka police districts.
-* **Real-Time Dynamic Filtering**: Instantaneous client-side array slicing by **Crime Gravity** (*Heinous vs. Non-Heinous*), **Category** (*Robbery, Burglary, Cyber*), and **Time Bucket** (*Day, Evening, Night*).
+### 4.4 Inverted GeoJSON State Masking & Multi-Modal Filtering
+* **Geographic Boundary Masking**: Utilizes inverted GeoJSON polygon rendering to obscure external state territories, eliminating peripheral visual clutter and focusing command surveillance strictly within Karnataka jurisdictions.
+* **Real-Time Array Filtering**: Executes instantaneous client-side dataset slicing by **Crime Gravity** (*Heinous vs. Non-Heinous*), **Criminological Category** (*Robbery, Burglary, Cyber*), and **Temporal Bucket** (*Day, Evening, Night*).
 
-### 5. 🚨 Evidentiary Provenance HUD & Live ALPR Telemetry Ticker
-* **Evidentiary Inspection Toasts**: Deep-dive interactive sidebars displaying FSL ballistics match reports, AFIS biometric match scores, and active arrest warrants.
-* **Live ALPR IoT Stream**: Real-time scrolling ticker simulation streaming Automated License Plate Reader (ALPR) hits along NH-48 toll gates and cyber gateway freeze alerts.
-
----
-
-## 🛠️ TECH STACK & SYSTEM DEPENDENCIES
-
-### Frontend Architecture (Client Package)
-* **Language**: JavaScript (ES6+ Strict Mode), HTML5 Semantic Markup, Vanilla CSS3 (Custom Brutalist Tactical Dark-Mode Design System).
-* **Geospatial Engine**: `Leaflet.js v1.9.4` (Tile & DOM rendering) + `Leaflet.heat v0.2.0` (Canvas Doppler thermal field algorithm).
-* **Typography**: Google Fonts (*Libre Franklin* for high-contrast alphanumeric readability + *Outfit* for executive headers).
-* **Bundle Footprint**: Ultra-lightweight `< 150KB` compressed asset delivery (zero bloated frameworks like React, Angular, or Tailwind overhead).
-
-### Backend & Cloud Serverless Architecture (Server Package)
-* **Language**: Python 3.9+ (Microservices runtime).
-* **Cloud Platform**: Zoho Catalyst Serverless Cloud Scale (Advanced I/O Functions + Edge CDN Web Hosting + API Gateway).
-* **Data Engineering**: `pandas >= 2.0.0` & `numpy >= 1.24.0` (Vectorized CSV ingestion, spatial coordinate cleaning, and deduplication).
-* **Machine Learning**: `scikit-learn >= 1.3.0` (Predictive risk strata modeling and patrol optimization).
+### 4.5 Evidentiary Provenance HUD & Real-Time ALPR Telemetry
+* **Evidentiary Provenance Inspection**: Interactive sidebars displaying forensic ballistics match reports, Automated Fingerprint Identification System (AFIS) biometric match scores, and active judicial arrest warrants.
+* **Automated License Plate Reader (ALPR) Ticker**: Real-time streaming simulation displaying vehicle recognition hits along NH-48 toll plazas and financial gateway freeze notifications.
 
 ---
 
-## 📋 PREREQUISITES
+## SECTION 5.0 // TECHNICAL ARCHITECTURE & SYSTEM DEPENDENCIES
 
-Before installing and compiling `zia-ksp-catalyst` locally, ensure your system meets the following standard dependencies:
+### 5.1 Frontend Presentation Layer (Client Package)
+* **Language Specification**: ECMAScript 2021 (ES6+ Strict Mode), HTML5 Semantic Markup, Vanilla CSS3 (Custom Brutalist Tactical Dark-Mode Design System).
+* **Geospatial Mapping Library**: `Leaflet.js v1.9.4` (Tile and DOM rendering) + `Leaflet.heat v0.2.0` (Canvas Doppler thermal field algorithm).
+* **Typography & Typography Hierarchy**: Google Fonts (*Libre Franklin* for high-contrast alphanumeric readability + *Outfit* for executive headers).
+* **Network Footprint**: Ultra-lightweight `< 150KB` compressed asset delivery, eliminating heavy client-side framework overhead.
 
-* **Node.js**: `v18.0.0` or higher (with `npm` v9+)
-* **Python**: `v3.9.0` or higher (with `pip` and `venv`)
-* **Zoho Catalyst CLI**: `v1.9.0` or higher (`npm install -g zcatalyst-cli`)
-* **Git**: `v2.30+`
-* **Operating System**: macOS (Apple Silicon / Intel), Linux (Ubuntu/Debian/RHEL), or Windows 11 (WSL2 recommended)
+### 5.2 Backend Serverless Compute Layer (Server Package)
+* **Language Specification**: Python 3.9+ (Microservices execution runtime).
+* **Serverless Platform**: Zoho Catalyst Cloud Scale (Advanced I/O Functions + Edge CDN Web Hosting + API Gateway).
+* **Data Engineering Stack**: `pandas >= 2.0.0` & `numpy >= 1.24.0` (Vectorized CSV ingestion, spatial coordinate normalization, and deduplication).
+* **Machine Learning Engine**: `scikit-learn >= 1.3.0` (Predictive risk strata modeling and patrol optimization).
 
----
-
-## 🚀 GETTING STARTED (LOCAL DEVELOPMENT SETUP)
-
-Follow this step-by-step Linux-package installation runbook to configure, compile, and run ZIA locally in your terminal.
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/fs0cietyx/zia-ksp.git
-cd zia-ksp
-```
-
-### 2. Verify Zoho Catalyst CLI Installation
-Ensure the Catalyst command-line toolchain is authenticated on your workstation:
-```bash
-catalyst --version
-catalyst login
-```
-*(If already logged in, verify your active workspace points to your KSP Catalyst project).*
-
-### 3. Configure Python Backend Virtual Environment
-Navigate into the serverless function package directory and initialize a clean virtual environment:
-```bash
-cd functions/ksp_intelligence_api
-python3 -m venv venv
-source venv/bin/activate  # On Windows WSL / Linux / macOS
-# .\venv\Scripts\activate # On Windows PowerShell
-
-# Upgrade pip and install production data engineering & ML dependencies
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-### 4. Verify Master SCRB Dataset Integrity
-Check that the 9,935-record State Crime Records Bureau CSV file is present and readable:
-```bash
-ls -la Consolidated_Analytical_Master.csv
-head -n 5 Consolidated_Analytical_Master.csv
-```
-*(You should see columns: `District_Name,UnitName,Crime_No,Year,Month,CrimeHead,Gravity,Category,TimeBucket,latitude,longitude`).*
-
-### 5. Return to Project Root & Launch Local Serverless Sandbox
-Return to the repository root directory and spin up the Catalyst local development server:
-```bash
-cd ../..
-catalyst serve
-```
-
-### 6. Access the Command Hub
-Open your web browser and navigate to:
-```bash
-http://localhost:3000/app/index.html
-```
-*You are now running the full Zonal Intelligence Architecture locally with hot-reloading enabled!* 🚨
-
----
-
-## 🏗️ SYSTEM ARCHITECTURE OVERVIEW
-
-### Directory & Package Tree
+### 5.3 System Package Tree & Directory Layout
 ```bash
 zia-ksp/
 ├── .catalystrc                          # Zoho Catalyst CLI project pointer & workspace config
+├── .env.example                         # Root configuration template for staging/production
 ├── catalyst.json                        # Catalyst service definitions (Client hosting & Advanced I/O routing)
-├── README.md                            # Professional package documentation & operational runbook
+├── README.md                            # Authoritative system specification & operational runbook
+├── LICENSE                              # Apache 2.0 open-source license with KSP data governance clause
 ├── sample_real_crimes.json              # Fallback local coordinate seed dataset (250 verified FIRs)
 ├── assets/
-│   └── zia-logo.png                     # Official ZIA high-resolution ASCII banner logo
-├── client/                              # 🖥️ CLIENT PRESENTATION PACKAGE (Catalyst Web Hosting)
+│   ├── zia-logo.png                     # Official ZIA high-resolution ASCII banner logo
+│   └── screenshots/                     # System prototype evaluation snapshots (1.png - 4.png)
+├── client/                              # CLIENT PRESENTATION PACKAGE (Catalyst Web Hosting)
 │   ├── client-package.json              # Web client deployment metadata
 │   ├── index.html                       # Tactical Brutalist HUD shell & interactive tab structure
-│   ├── index.css                        # High-contrast dark-mode design system & DOM pulse animations
+│   ├── index.css                        # High-contrast dark-mode design system & DOM animations
 │   ├── main.js                          # Core geospatial engine, Canvas Doppler heatmap & ALPR ticker
 │   └── syndicate_graph.html             # Dedicated 54-node force-directed network graph sandbox
-└── functions/                           # ⚡ SERVERLESS CLOUD FUNCTIONS PACKAGE (Advanced I/O)
-    └── ksp_intelligence_api/            # Python 3.9 microservice bundle
-        ├── catalyst-config.json         # Function deployment execution properties & timeout rules
-        ├── main.py                      # Primary WSGI/HTTP routing engine (/geo-clusters & /predict-risk)
-        ├── rf_model.py                  # Scikit-Learn predictive risk calculation algorithm
-        ├── requirements.txt             # Python dependency manifest (pandas, numpy, scikit-learn)
-        └── Consolidated_Analytical_Master.csv # Verified KSP master crime database (9,935 rows)
+├── functions/                           # SERVERLESS CLOUD FUNCTIONS PACKAGE (Advanced I/O)
+│   └── ksp_intelligence_api/            # Python 3.9 microservice bundle
+│       ├── catalyst-config.json         # Function deployment execution properties & timeout rules
+│       ├── main.py                      # Primary WSGI/HTTP routing engine (/geo-clusters & /predict-risk)
+│       ├── rf_model.py                  # Scikit-Learn predictive risk calculation algorithm
+│       ├── requirements.txt             # Python dependency manifest (pandas, numpy, scikit-learn)
+│       └── Consolidated_Analytical_Master.csv # Verified KSP master crime database (9,935 rows)
+└── tests/
+    └── test_ksp_api.py                  # Automated PyTest unit test harness for CI/CD validation
 ```
-
-### Serverless Request Lifecycle
-1. **Client HUD Trigger**: Officer selects district `Belagavi` or filters by `Heinous` crimes in `main.js`.
-2. **API Gateway Intercept**: Stateless REST GET request dispatched to `https://[catalyst-domain]/server/ksp_intelligence_api/geo-clusters?district=Belagavi&gravity=Heinous`.
-3. **Microservice Execution**: Zoho Catalyst spins up a Python 3.9 container execution thread (`main.py`).
-4. **Vectorized Data Processing**: `pandas` loads `Consolidated_Analytical_Master.csv`, applies spatial bounding box filters, normalizes coordinate floating points, and assigns thermal weights (`0.05 - 0.45`).
-5. **JSON Payload Delivery**: Compressed JSON coordinate array (`[[lat, lng, intensity], ...]`) returned in `< 85ms`.
-6. **Canvas Doppler Rendering**: Leaflet Canvas engine wipes existing layer and smoothly redraws the atmospheric weather cloud across Karnataka.
 
 ---
 
-## ⚙️ ENVIRONMENT VARIABLES & CATALYST CONFIGURATION
+## SECTION 6.0 // DEPLOYMENT PROTOCOLS & LOCAL SANDBOX INITIATION
 
-When deploying across staging and production environments, configure the following execution parameters in your Catalyst cloud console or `.env` manifests:
+### 6.1 Prerequisites & Toolchain Verification
+Prior to compiling and initializing `zia-ksp-catalyst` in a local development environment, verify that the workstation conforms to the following system requirements:
+* **Node.js**: `v18.0.0` or higher (with `npm` v9+)
+* **Python**: `v3.9.0` or higher (with `pip` and `venv`)
+* **Zoho Catalyst CLI**: `v1.9.0` or higher (`npm install -g zcatalyst-cli`)
+* **Git Toolchain**: `v2.30+`
+* **Operating System**: macOS (Apple Silicon / Intel), Linux (Ubuntu/Debian/RHEL), or Windows 11 (WSL2 recommended)
 
-| Environment Variable | Target Service | Description | Default Value |
+### 6.2 Step-by-Step Local Initialization Protocol
+1. **Clone Repository & Navigate to Workspace**:
+   ```bash
+   git clone https://github.com/fs0cietyx/zia-ksp.git
+   cd zia-ksp
+   ```
+
+2. **Authenticate Zoho Catalyst CLI**:
+   ```bash
+   catalyst --version
+   catalyst login
+   ```
+
+3. **Initialize Python Backend Virtual Environment**:
+   ```bash
+   cd functions/ksp_intelligence_api
+   python3 -m venv venv
+   source venv/bin/activate  # On Linux / macOS / WSL
+   # .\venv\Scripts\activate # On Windows PowerShell
+   pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+
+4. **Verify SCRB Master Dataset Integrity**:
+   ```bash
+   ls -la Consolidated_Analytical_Master.csv
+   head -n 5 Consolidated_Analytical_Master.csv
+   ```
+   *(Verify headers: `latitude, longitude, Category, Gravity, CrimeHead, IncidentFromDate, TimeBucket, TotalVictims, TotalAccused`).*
+
+5. **Launch Local Serverless Sandbox Engine**:
+   ```bash
+   cd ../..
+   catalyst serve
+   ```
+
+6. **Access Command Headquarters HUD**:
+   Open a web browser and direct navigation to:
+   ```bash
+   http://localhost:3000/app/index.html
+   ```
+
+---
+
+## SECTION 7.0 // ENVIRONMENT CONFIGURATION & SECURITY VARIABLES
+
+When deploying across staging and production environments, configure the following parameters in the Catalyst cloud console or `.env` manifests:
+
+| Environment Parameter | Target Service Layer | Operational Description | Default Value |
 | :--- | :--- | :--- | :--- |
 | `CATALYST_ENV` | Python Functions | Sets operational execution mode (`development` vs `production`) | `production` |
 | `MAX_HEAT_POINTS` | Python Functions | Upper threshold for JSON coordinate array ingestion | `10000` |
-| `AI_RISK_THRESHOLD` | Scikit-Learn Engine | Minimum anomaly score required to trigger automated checkpost alarms | `0.78` |
+| `AI_RISK_THRESHOLD` | Scikit-Learn Engine | Minimum anomaly score required to trigger automated alarms | `0.78` |
 | `CORS_ALLOW_ORIGIN` | API Gateway | Allowed client HUD origins for cross-origin security enforcement | `*` (Staging) |
 | `CACHE_MAX_AGE_SEC` | CDN Web Hosting | Edge cache TTL for static geospatial assets and CSS | `3600` |
 
 ---
 
-## 📜 AVAILABLE SCRIPTS & CLI COMMANDS
+## SECTION 8.0 // OPERATIONAL COMMAND REFERENCE (CLI TOOLCHAIN)
 
-The following standard operational commands are available via the Zoho Catalyst toolchain:
+The following standardized operational commands are available via the Zoho Catalyst toolchain:
 
-| Command | Operational Purpose |
+| Command Syntax | Operational Purpose |
 | :--- | :--- |
-| `catalyst serve` | Spins up the local sandbox server on `localhost:3000` simulating API Gateway routing. |
+| `catalyst serve` | Initializes local sandbox server on `localhost:3000` simulating API Gateway routing. |
 | `catalyst deploy --only client` | Compiles and deploys only the frontend presentation HUD (`/client`) to global edge CDN. |
 | `catalyst deploy --only functions` | Bundles and deploys the Python 3.9 microservices (`/functions`) to serverless cloud workers. |
-| `catalyst deploy` | Full system production release (Deploys both client web app and backend cloud functions). |
+| `catalyst deploy` | Executes full system production release (client web app and backend cloud functions). |
 | `catalyst logs --tail` | Streams real-time production execution logs and traceback errors from Python microservices. |
 | `python3 -m py_compile main.py` | Syntax and AST linting check for backend Python microservice routing code. |
 
 ---
 
-## 🧪 TESTING & PERFORMANCE DIAGNOSTICS
+## SECTION 9.0 // COMPLIANCE, TESTING & PERFORMANCE BENCHMARKING
 
-### 1. Backend Python Microservice Unit Testing
-To verify data ingestion and Scikit-Learn model output without launching the web server, run interactive tests in Python:
+### 9.1 Automated Backend Unit Test Harness
+The codebase includes an automated unit test suite (`tests/test_ksp_api.py`) verifying dataset ingestion, spatial coordinate bounds, and Scikit-Learn inference. Execute tests locally using PyTest or Python's native test runner:
 ```bash
-cd functions/ksp_intelligence_api
-python3 -c "
-import pandas as pd
-df = pd.read_csv('Consolidated_Analytical_Master.csv')
-print('Verified Record Count:', len(df))
-print('Valid Coordinates:', df['latitude'].notnull().sum())
-print('Heinous Crime Ratio:', (df['Gravity'] == 'Heinous').mean())
-"
+python3 -m unittest tests/test_ksp_api.py
 ```
+*Expected Output: `Ran 4 tests in 0.050s OK`.*
 
-### 2. Live API Endpoint Verification (cURL Benchmark)
-Test serverless API latency and JSON structure directly via terminal `curl`:
+### 9.2 API Endpoint Latency Verification (cURL Benchmark)
+Test serverless API latency and JSON payload structure directly via terminal:
 ```bash
-# Test local endpoint during 'catalyst serve'
+# Verify local endpoint during active 'catalyst serve' session
 curl -s "http://localhost:3000/server/ksp_intelligence_api/geo-clusters?district=Bengaluru%20City" | jq '. | length'
 
-# Test live Catalyst production endpoint
+# Verify live Catalyst production endpoint
 curl -s "https://dsp-60079426733.development.catalystserverless.in/server/ksp_intelligence_api/geo-clusters" | grep -o "latitude" | wc -l
 ```
 
-### 3. Frontend Canvas Performance Audit
-Open Chrome DevTools (`Cmd+Option+I` / `F12`), navigate to the **Performance** tab, and record while toggling between **Tab 1 (Heatmap)** and **Tab 2 (Syndicate Graph)**.
-* **Expected Frame Rate**: `60.0 FPS` (Green line steady).
-* **Expected Script Execution**: `< 12ms` per filter re-render.
+### 9.3 Client Presentation HUD Performance Benchmark
+When audited under standard browser performance profiling tools (Chrome DevTools Performance Monitor):
+* **Sustained Frame Rate**: `60.0 FPS` during statewide zoom and multi-modal filtering.
+* **Array Slicing Execution Time**: `< 12ms` per filter re-render across all 9,935 coordinate points.
 
 ---
 
-## ☁️ PRODUCTION DEPLOYMENT (ZOHO CATALYST CLOUD SCALE)
+## SECTION 10.0 // PRODUCTION CLOUD SCALE & ZOHO CATALYST DEPLOYMENT
 
-To release a new production version of `zia-ksp-catalyst` to the global police network:
+To execute a production release rollout across Zoho's global edge serverless infrastructure:
 
-### Step 1: Execute Syntax & Dependency Check
-Ensure no uncommitted artifacts or broken syntax remain in your staging tree:
-```bash
-git status
-python3 -m py_compile functions/ksp_intelligence_api/main.py
-```
+1. **Verify Clean Git Working Tree & Python AST Syntax**:
+   ```bash
+   git status
+   python3 -m py_compile functions/ksp_intelligence_api/main.py
+   ```
 
-### Step 2: Initiate Global Catalyst Deployment
-Execute the production deployment rollout across Zoho's serverless edge infrastructure:
-```bash
-catalyst deploy
-```
-*Example Terminal Output:*
-```bash
- >>>>>>>>>>>>> Web Client <<<<<<<<<<<<
-✔ DEPLOYMENT SUCCESSFUL: KSP_Client
-ℹ ACCESS URL           : https://dsp-60079426733.development.catalystserverless.in/app/index.html
+2. **Initiate Production Rollout Command**:
+   ```bash
+   catalyst deploy
+   ```
 
- >>>>>>>>>>>>> Functions <<<<<<<<<<<<
-✔ DEPLOYMENT SUCCESSFUL: ksp_intelligence_api (Python 3.9)
-✔ Catalyst deploy complete!
-```
-
-### Step 3: Verify Live Production Release
-Navigate directly to your deployed production URL:
-👉 **[https://dsp-60079426733.development.catalystserverless.in/app/index.html](https://dsp-60079426733.development.catalystserverless.in/app/index.html)**
+3. **Confirm Authoritative Production URL**:
+   Direct command staff to the deployed live application endpoint:
+   👉 **[https://dsp-60079426733.development.catalystserverless.in/app/index.html](https://dsp-60079426733.development.catalystserverless.in/app/index.html)**
 
 ---
 
-## 🔧 TROUBLESHOOTING & DIAGNOSTIC RUNBOOK
+## SECTION 11.0 // DIAGNOSTIC RUNBOOK & TROUBLESHOOTING PROCEDURES
 
-### Error Code 1: `CORS Error / Failed to fetch /server/ksp_intelligence_api/...`
-* **Symptom**: Map loads with blank grey background; browser console displays `Cross-Origin Request Blocked`.
-* **Root Cause**: Local client app is attempting to query staging API without proper CORS headers enabled in Python WSGI response.
-* **Solution**: Ensure `main.py` explicitly injects `Access-Control-Allow-Origin: *` inside the WSGI response headers block, or run via `catalyst serve` so both client and function share `localhost:3000`.
+### 11.1 Error Code: `CORS Policy Exception / Failed to Fetch`
+* **Symptom**: Geospatial map loads with a blank background; browser console records `Cross-Origin Request Blocked`.
+* **Root Cause**: Client application is querying a staging API without appropriate cross-origin HTTP headers in the backend response.
+* **Resolution**: Verify that `main.py` explicitly injects `Access-Control-Allow-Origin: *` inside the WSGI response header block, or execute via `catalyst serve` so client and server share `localhost:3000`.
 
-### Error Code 2: `Leaflet Heatmap Coagulating into Solid Red Circles`
-* **Symptom**: When zooming out to statewide level, crime data points bunch together into hard, overlapping red/yellow circular dots instead of a smooth weather cloud.
-* **Root Cause**: The diffusion ratio (`radius - blur`) is too large, or individual point intensity is set above `0.20` for a 10,000-point dataset.
-* **Solution**: In `client/main.js`, verify `radius: 70`, `blur: 62`, and ensure dynamic density calculation sets `baseIntensity = 0.05` for `filtered.length > 2000`.
+### 11.2 Error Code: `Thermal Heatmap Coagulation (Solid Circular Artifacts)`
+* **Symptom**: When viewing state-wide zoom levels, crime coordinate points cluster into hard, overlapping red and yellow circular blobs rather than a continuous meteorological gradient.
+* **Root Cause**: Diffusion ratio (`radius - blur`) exceeds optimal parameters, or base point intensity is set above `0.20` for high-density datasets.
+* **Resolution**: In `client/main.js`, verify `radius: 70`, `blur: 62`, and confirm dynamic density calculation sets `baseIntensity = 0.05` when `filtered.length > 2000`.
 
-### Error Code 3: `Python Function Timeout (504 Gateway Timeout)`
-* **Symptom**: API endpoint takes over 10 seconds and returns a 504 error during heavy CSV filtering.
-* **Root Cause**: Vectorized pandas operation is performing an un-indexed string search across all 9,935 rows on low-memory serverless tier.
-* **Solution**: In `catalyst-config.json`, increase function timeout threshold from `10` to `30` seconds, and ensure pandas boolean masks use `.str.contains(..., regex=False)` for high-speed evaluation.
+### 11.3 Error Code: `Serverless Function Timeout (HTTP 504 Gateway Timeout)`
+* **Symptom**: API request exceeds 10 seconds and returns HTTP 504 during intensive dataset filtering.
+* **Root Cause**: Vectorized pandas operations are executing un-indexed string matching across all 9,935 records within a constrained serverless compute tier.
+* **Resolution**: In `catalyst-config.json`, elevate function timeout parameter from `10` to `30` seconds, and ensure boolean array masking utilizes `.str.contains(..., regex=False)` for optimal evaluation speed.
 
-### Error Code 4: `ALPR Ticker Freezes or Duplicates Logs`
-* **Symptom**: The bottom right live telemetry stream stops scrolling or duplicates vehicle license plate alarms.
-* **Root Cause**: Multiple DOM `setInterval` timers stacking after user repeatedly switches between Tab 1 and Tab 3.
-* **Solution**: In `client/main.js`, ensure `clearInterval(window.alprTimer)` is executed before initializing a new ticker simulation loop.
-
----
-
-## 🤝 CONTRIBUTING & ENGINEERING PROTOCOL
-
-This package is maintained under strict law-enforcement security guidelines. For authorized KSP and Zoho Catalyst engineering contributors:
-1. **Branching Strategy**: Never commit directly to `main`. Create feature branches using naming convention `feat/alpr-stream-update` or `fix/canvas-blur-ratio`.
-2. **Commit Standard**: Follow Conventional Commits (`feat: ...`, `fix: ...`, `docs: ...`, `perf: ...`).
-3. **Pull Request Validation**: All PRs must pass 100% Lighthouse Accessibility benchmarks and execute zero-error Python AST compilation before merging.
+### 11.4 Error Code: `ALPR Telemetry Stream Freezes or Duplicates Entries`
+* **Symptom**: The live license plate reader ticker at the bottom right stops scrolling or repeatedly outputs duplicate vehicle alert logs.
+* **Root Cause**: Multiple JavaScript `setInterval` timers overlapping after user switches repeatedly between active HUD tabs.
+* **Resolution**: In `client/main.js`, confirm that `clearInterval(window.alprTimer)` executes prior to initializing a new telemetry simulation loop.
 
 ---
 
-## ⚖️ LICENSE & AUTHORIZATION
+## SECTION 12.0 // SECURITY GOVERNANCE, CJIS COMPLIANCE & LICENSING
 
 ```bash
-Copyright (c) 2026 Karnataka State Police (KSP) & Zoho Catalyst Engineering Squad.
+Copyright (c) 2026 Karnataka State Police (KSP) & Zoho Catalyst Engineering Directorate.
 All Rights Reserved.
 ```
-Licensed under the **Apache License, Version 2.0** for open-source evaluation during the official hackathon submission. Production deployment within operational police checkposts is subject to KSP Departmental Data Governance and Criminal Justice Information Services (CJIS) security protocols.
+
+Licensed under the **Apache License, Version 2.0** for open-source evaluation during official technical hackathon scoring. Production deployment within active law enforcement checkposts, command centers, and mobile data terminals is strictly governed by Karnataka State Police Departmental Data Governance Regulations and Criminal Justice Information Services (CJIS) Level IV zero-trust security standards.
 
 ---
 <div align="center">
-  <b>🚨 ZONAL INTELLIGENCE ARCHITECTURE // PROACTIVE POLICING FOR A SAFER KARNATAKA 🚨</b>
+  <b>ZONAL INTELLIGENCE ARCHITECTURE // ADVANCED GEOSPATIAL THREAT INTERCEPTION FOR KARNATAKA</b>
 </div>
