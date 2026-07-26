@@ -2,19 +2,6 @@
   <img src="assets/zia-logo.png" alt="ZIA Logo" width="650" />
 </div>
 
-```
-+---------------------------------------------------------------------------------------------------+
-|  ______ _____  ___       ______  ___  ___________ _____  ____  _____ _____   ___ _____ _____ ___  |
-| |___  /|_   _|/ _ \      | ___ \/ _ \|  ___|____ |  ___|/ ___||  ___/  __ \ / _ \_   _|_   _/ _ \ |
-|    / /   | | / /_\ \     | |_/ / /_\ \ |__     / / |__ / /___ | |__ | /  \// /_\ \| |   | |/ /_\ \|
-|   / /    | | |  _  |     |  __/|  _  |  __|   \ \|  __|| ___ \|  __|| |    |  _  || |   | ||  _  ||
-| ./ /____ | | | | | |     | |   | | | | |___ .-/ /| |___| \_/ || |___| \__/\| | | || |  _| || | | ||
-| \_____/\___/ \_| |_/     \_|   \_| |_/\____/\___/\____/\_____/\____/ \____/\_| |_/\_/  \___/\_| |_/|
-|                                                                                                   |
-|                      ZONAL INTELLIGENCE ARCHITECTURE // ZOHO CATALYST EDITION                     |
-+---------------------------------------------------------------------------------------------------+
-```
-
 [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-ZOHO_CATALYST_EDGE-00ff44?style=for-the-badge&logo=zoho&logoColor=black)](https://dsp-60079426733.development.catalystserverless.in/app/index.html)
 [![Package Version](https://img.shields.io/badge/PKG_VERSION-v1.0.0--catalyst-00d4ff?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/fs0cietyx/zia-ksp)
 [![Runtime Engine](https://img.shields.io/badge/RUNTIME-PYTHON_3.9_%7C_ES6%2B-ff6600?style=for-the-badge&logo=python&logoColor=white)](https://github.com/fs0cietyx/zia-ksp)
