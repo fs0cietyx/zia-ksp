@@ -48,6 +48,34 @@ By executing real-time **Scikit-Learn** machine learning inference on macro-soci
 
 ---
 
+## 📸 SYSTEM PROTOTYPE SNAPSHOTS (TACTICAL COMMAND HUD)
+
+### 1. 🌦️ Statewide Doppler Weather-Radar Heatmap & Active Pulse Markers
+<div align="center">
+  <img src="assets/screenshots/screenshot-1.png" alt="Doppler Weather Heatmap" width="900" />
+</div>
+<p align="center"><i>Real-time Canvas Doppler thermal field across Karnataka illustrating high-density crime storm fronts without dot coagulation.</i></p>
+
+### 2. 🕸️ 54-Node Syndicate Relationship Graph & Super-Bridge Isolation
+<div align="center">
+  <img src="assets/screenshots/screenshot-2.png" alt="Syndicate Relationship Graph" width="900" />
+</div>
+<p align="center"><i>ForceAtlas2 topology network isolating 1-hop and 2-hop criminal ecosystems and hawala money-laundering super-bridges.</i></p>
+
+### 3. 🔮 Predictive Sociological Crime Simulation & AI Risk Strata
+<div align="center">
+  <img src="assets/screenshots/screenshot-3.png" alt="Predictive AI Sandbox" width="900" />
+</div>
+<p align="center"><i>Scikit-Learn 30-day forward-looking risk forecasting sandbox driven by interactive macro-sociological indicators.</i></p>
+
+### 4. 🗺️ Cross-Jurisdictional MO Matrix & Evidentiary Provenance
+<div align="center">
+  <img src="assets/screenshots/screenshot-4.png" alt="MO Matrix & Provenance" width="900" />
+</div>
+<p align="center"><i>Comparative analytical matrix and deep-dive evidentiary provenance inspection sidebars for executive decision-making.</i></p>
+
+---
+
 ## ✨ CORE PACKAGE CAPABILITIES & FEATURES
 
 ### 1. 🌦️ Seamless Meteorological Doppler Weather-Radar Cloud Engine
