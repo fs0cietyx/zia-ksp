@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSP Catalyst - Strategic Intelligence Hub</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Share+Tech+Mono&family=Libre+Franklin:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-heat@0.2.0/dist/leaflet-heat.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>KSP // SCRB<span>[ COMMAND CENTER ]</span></h2>
+                <span class="sys-sub">SYS.ID: 0x9935 // EXECUTIVE.MONO</span>
+            </div>
+            <div style="margin: 1rem 0; padding: 0 1rem;">
+                <button id="btn-open-cmd" style="width: 100%; background: #09090b; color: #a1a1aa; border: 1px solid #3f3f46; padding: 0.65rem 0.85rem; border-radius: 6px; font-family: monospace; font-size: 0.75rem; text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                    <span>🔍 Quick Command</span>
+                    <span style="background: #18181b; color: #ffffff; padding: 2px 6px; border-radius: 3px; font-size: 0.65rem; border: 1px solid #27272a;">Ctrl+K</span>
+                </button>
+            </div>
+            <nav>
+                <ul id="nav-list">
+                    <li class="nav-item active" data-tab="tab-geospatial">
+                        <a href="#geospatial">
+                            <span class="icon">■</span> Geospatial Heatmap
+                        </a>
+                    </li>
+                    <li class="nav-item" data-tab="tab-network">
+                        <a href="#network">
+                            <span class="icon">■</span> Syndicate Network
+                        </a>
+                    </li>
+                    <li class="nav-item" data-tab="tab-predictive">
+                        <a href="#predictive">
+                            <span class="icon">■</span> Predictive AI (ZIA)
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="status-box">
+                <p>SCRB Node: <strong>ONLINE</strong></p>
+                <div class="pulse-indicator"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" style="overflow-y: auto;">
+            
+            <!-- GLOBAL OPERATIONAL BAR: ANPR STREAM & RBAC CHAIN OF CUSTODY -->
+            <div style="background: #09090b; border: 1px solid #27272a; border-left: 4px solid #ffffff; padding: 0.85rem 1.25rem; border-radius: 6px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="background: #ffffff; color: #000000; font-size: 0.65rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 3px; letter-spacing: 1px;">ANPR LIVE STREAM</span>
+                    <span id="anpr-ticker-text" style="font-family: monospace; font-size: 0.8rem; color: #d4d4d8;">[20:45:12 IST] ALERT: White Scorpio (KA-04-EY-1923) flagged at Dharwad Toll Plaza (NH-48). High-Risk Syndicate Alpha vector!</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 0.7rem; color: #a1a1aa; font-family: monospace;">🛡️ CLEARANCE: <strong style="color: #ffffff;">LEVEL 4 (STATE HQ)</strong></span>
+                    <button id="btn-export-dossier" style="background: #ffffff; color: #000000; border: 1px solid #ffffff; padding: 0.35rem 0.75rem; border-radius: 4px; font-size: 0.7rem; font-weight: 800; cursor: pointer; text-transform: uppercase;">[ 📄 Export Court Dossier ]</button>
+                    <button id="btn-audit-log" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; padding: 0.35rem 0.75rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; cursor: pointer; text-transform: uppercase;">[ View Audit Trail ]</button>
+                </div>
+            </div>
+
+            <!-- TAB 1: GEOSPATIAL & SPATIOTEMPORAL HUB -->
+            <div id="tab-geospatial" class="tab-content active">
+                <header>
+                    <h1>Karnataka Crime & Intelligence Map</h1>
+                    <p>Executive Criminological Monitoring Console — 9,935 Spatiotemporal Records</p>
+                </header>
+
+                <!-- Emerging Trend Alert (Interactive Red-Zone Intercepts) -->
+                <div id="active-alert-banner" class="alert-banner red-zone-active" style="margin-bottom: 1.25rem;">
+                    <span style="font-size: 1.25rem; font-weight: 800; color: #ef4444;">🚨</span>
+                    <div style="flex: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 8px;">
+                            <h4 id="alert-banner-title" style="color: #ffffff; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">EMERGING TREND ALERT — PROACTIVE RED-ZONE INTERCEPT REQUIRED</h4>
+                            <span style="background: #ef4444; color: #ffffff; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-radius: 3px; animation: tacticalBlink 1.5s infinite;">LIVE GEO-FENCE ACTIVE</span>
+                        </div>
+                        <p id="alert-banner-desc" style="font-size: 0.85rem; color: #d4d4d8; margin: 0 0 10px 0; line-height: 1.5;">240% spike in <strong>High-Way Robbery & Dacoity</strong> detected across Belagavi & Dharwad jurisdictions during Night Watch (22:00 - 04:00). Proactive check-post reinforcement advised.</p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+                            <span style="font-size: 0.75rem; color: #a1a1aa; font-weight: 700;">Tactical Vectors:</span>
+                            <button class="alert-pill critical active" data-vector="nh48">📍 ALPR-2204: White Scorpio (NH-48 Corridor)</button>
+                            <button class="alert-pill" data-vector="cyber">⚡ CYBER-091: 0x81B Crypto Drain (Udupi/Mangaluru)</button>
+                            <button class="alert-pill" data-vector="cutter">🔥 BURGLARY: Monsoon Gas Cutters (Mysuru South)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highway Ambush Tactical Intercept Simulator -->
+                <div style="background: #09090b; border: 1px solid #3f3f46; padding: 0.75rem 1.25rem; border-radius: 6px; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <span style="color: #ffffff; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">🔴 Live Tactical Highway Ambush Simulator (NH-48 Corridor)</span>
+                        <p style="font-size: 0.75rem; color: #a1a1aa; margin: 2px 0 0 0;">Simulates a live dacoity interception along Dharwad-Belagavi highway with automated 5km tactical containment radius.</p>
+                    </div>
+                    <button id="btn-simulate-ambush" class="glow-button" style="background: #ffffff; color: #000000; border: 1px solid #ffffff; padding: 0.6rem 1rem; border-radius: 4px; font-weight: 800; font-size: 0.75rem; cursor: pointer; text-transform: uppercase;">[ 🚓 Simulate Highway Intercept ]</button>
+                </div>
+
+                <!-- District Drill-Down & Spatiotemporal Filter Bar -->
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label>District Drill-Down</label>
+                        <select id="district-filter" class="filter-select">
+                            <option value="ALL">All Karnataka Districts</option>
+                            <option value="BENGALURU">Bengaluru City & Urban</option>
+                            <option value="MYSURU">Mysuru City & District</option>
+                            <option value="BELAGAVI">Belagavi District</option>
+                            <option value="MANGALURU">Mangaluru / Dakshina Kannada</option>
+                            <option value="DHARWAD">Hubballi - Dharwad</option>
+                            <option value="KALABURAGI">Kalaburagi District</option>
+                            <option value="SHIVAMOGGA">Shivamogga District</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Time-of-Day Layering</label>
+                        <select id="time-filter" class="filter-select">
+                            <option value="ALL">All Hours (24/7 Monitoring)</option>
+                            <option value="NIGHT">Night Watch (22:00 - 04:00)</option>
+                            <option value="MORNING">Morning Rush (07:00 - 11:00)</option>
+                            <option value="DAY">Daytime (11:00 - 17:00)</option>
+                            <option value="EVENING">Evening Peak (17:00 - 22:00)</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Crime Category Filter</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="ALL">All Categories (9,935 Records)</option>
+                            <option value="HEINOUS">Heinous Crimes Only</option>
+                            <option value="ROBBERY">Robbery & Dacoity</option>
+                            <option value="BURGLARY">Burglary & House Break-in</option>
+                            <option value="CYBER">Cyber Crime & Financial Fraud</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-box">
+                        <h4>Total SCRB Records</h4>
+                        <div class="val">9,935</div>
+                    </div>
+                    <div class="kpi-box">
+                        <h4>Heinous Crime Ratio</h4>
+                        <div class="val" style="color: #ffffff;">18.4%</div>
+                    </div>
+                    <div class="kpi-box">
+                        <h4>Primary Hotspot Zone</h4>
+                        <div class="val" style="color: #ffffff; font-size: 1.4rem; padding-top: 4px;">Bengaluru Urban</div>
+                    </div>
+                    <div class="kpi-box">
+                        <h4>Proactive Prevention</h4>
+                        <div class="val" style="color: #ffffff;">88.5%</div>
+                    </div>
+                </div>
+
+                <!-- Karnataka Map Card -->
+                <section class="visuals-grid">
+                    <div class="card map-card" style="grid-column: 1 / -1;">
+                        <div class="card-header">
+                            <h3>Karnataka Spatiotemporal Crime Heatmap</h3>
+                            <span class="badge" id="map-status-badge">Live 9,935 Data Points</span>
+                        </div>
+                        <div class="iframe-container" id="geo-map" style="width: 100%; height: 550px; background: #09090b; border-radius: 0 0 8px 8px;">
+                            <!-- Leaflet renders here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 24x7 Spatiotemporal Heat Grid Matrix -->
+                <div class="card" style="margin-top: 1.5rem; background: #09090b; border: 1px solid #3f3f46; border-radius: 8px; padding: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">24x7 Spatiotemporal Heat Grid Matrix // Pattern Discovery</h3>
+                            <p style="font-size: 0.8rem; color: #a1a1aa; margin: 2px 0 0 0;">Click any time-slot cell to isolate FIR records and generate tactical patrol recommendations.</p>
+                        </div>
+                        <span style="font-family: monospace; font-size: 0.75rem; color: #ffffff; background: #18181b; padding: 4px 8px; border-radius: 4px; border: 1px solid #3f3f46;">ZIA Pattern Engine: ACTIVE</span>
+                    </div>
+                    <div class="heat-grid-matrix" id="spatiotemporal-grid">
+                        <div class="heat-grid-header">DAY / HOUR</div>
+                        <div class="heat-grid-header">00:00 - 04:00</div>
+                        <div class="heat-grid-header">04:00 - 08:00</div>
+                        <div class="heat-grid-header">08:00 - 12:00</div>
+                        <div class="heat-grid-header">12:00 - 16:00</div>
+                        <div class="heat-grid-header">16:00 - 20:00</div>
+                        <div class="heat-grid-header">20:00 - 24:00</div>
+
+                        <div class="heat-grid-row-label">MON</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="mon-00">42 FIRs [HIGH]</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="mon-04">12 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="mon-08">24 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="mon-12">29 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="mon-16">51 FIRs [HIGH]</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="mon-20">38 FIRs</div>
+
+                        <div class="heat-grid-row-label">TUE</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="tue-00">31 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="tue-04">9 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="tue-08">18 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="tue-12">27 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="tue-16">34 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="tue-20">48 FIRs [HIGH]</div>
+
+                        <div class="heat-grid-row-label">WED</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="wed-00">35 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="wed-04">11 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="wed-08">22 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="wed-12">19 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="wed-16">39 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="wed-20">33 FIRs</div>
+
+                        <div class="heat-grid-row-label">THU</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="thu-00">44 FIRs [HIGH]</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="thu-04">14 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="thu-08">25 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="thu-12">31 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="thu-16">47 FIRs [HIGH]</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="thu-20">52 FIRs [HIGH]</div>
+
+                        <div class="heat-grid-row-label">FRI</div>
+                        <div class="heat-grid-cell heat-cell-crit" data-slot="fri-00">89 FIRs [CRIT]</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="fri-04">16 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="fri-08">33 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="fri-12">38 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="fri-16">64 FIRs [HIGH]</div>
+                        <div class="heat-grid-cell heat-cell-crit" data-slot="fri-20">94 FIRs [CRIT]</div>
+
+                        <div class="heat-grid-row-label">SAT</div>
+                        <div class="heat-grid-cell heat-cell-crit" data-slot="sat-00">112 FIRs [CRIT]</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="sat-04">22 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="sat-08">29 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="sat-12">45 FIRs [HIGH]</div>
+                        <div class="heat-grid-cell heat-cell-crit" data-slot="sat-16">78 FIRs [CRIT]</div>
+                        <div class="heat-grid-cell heat-cell-crit" data-slot="sat-20">108 FIRs [CRIT]</div>
+
+                        <div class="heat-grid-row-label">SUN</div>
+                        <div class="heat-grid-cell heat-cell-crit" data-slot="sun-00">96 FIRs [CRIT]</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="sun-04">15 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-low" data-slot="sun-08">19 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-med" data-slot="sun-12">28 FIRs</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="sun-16">56 FIRs [HIGH]</div>
+                        <div class="heat-grid-cell heat-cell-high" data-slot="sun-20">71 FIRs [HIGH]</div>
+                    </div>
+                </div>
+
+                <!-- District Drill-Down Live FIR Table -->
+                <div class="brutal-table-container">
+                    <div style="padding: 1rem 1.25rem; background: #121215; border-bottom: 1px solid #27272a; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <strong style="color: #ffffff; font-size: 0.95rem; text-transform: uppercase;">Live District FIR Telemetry & Active Patrol Orders</strong>
+                            <span style="display: block; font-size: 0.75rem; color: #a1a1aa; margin-top: 2px;">Showing filtered FIR records synced in real-time from CCTNS stations across Karnataka.</span>
+                        </div>
+                        <span id="fir-table-count" style="background: #ffffff; color: #000000; font-family: monospace; font-size: 0.75rem; font-weight: 800; padding: 4px 8px; border-radius: 3px;">6 ACTIVE FIR RECORDS</span>
+                    </div>
+                    <table class="brutal-table">
+                        <thead>
+                            <tr>
+                                <th>FIR / STATION</th>
+                                <th>DISTRICT / TIME</th>
+                                <th>CRIME HEAD & MO</th>
+                                <th>TARGETED SUSPECTS</th>
+                                <th>AI SEVERITY & TACTICAL ORDER</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fir-table-body">
+                            <tr class="row-critical">
+                                <td><strong style="color:#ffffff;">FIR #0192/2026</strong><br><span style="color:#71717a; font-size:0.75rem;">Dharwad Rural PS</span></td>
+                                <td><strong>DHARWAD</strong><br><span style="color:#ef4444; font-weight:700;">02:15 AM (NIGHT)</span></td>
+                                <td><strong>HIGHWAY DACOITY</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">Fake Barricade / 7.65mm Weapon</span></td>
+                                <td><span class="nlp-badge nlp-person">Ravi Kumar @ Battery</span><br><span class="nlp-badge nlp-vehicle">KA-04-EY-1923</span></td>
+                                <td><span style="color:#ef4444; font-weight:800;">94.8% [CRITICAL RISK]</span><br><span style="font-size:0.75rem; color:#d4d4d8;">Deploy NH-48 Intercept Unit</span></td>
+                            </tr>
+                            <tr class="row-critical">
+                                <td><strong style="color:#ffffff;">FIR #0084/2026</strong><br><span style="color:#71717a; font-size:0.75rem;">Mysuru South PS</span></td>
+                                <td><strong>MYSURU</strong><br><span style="color:#ef4444; font-weight:700;">03:30 AM (NIGHT)</span></td>
+                                <td><strong>COMMERCIAL BURGLARY</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">LPG Gas Cutter Vault Breach</span></td>
+                                <td><span class="nlp-badge nlp-person">Manja @ Cutter</span><br><span class="nlp-badge nlp-weapon">Oxygen-LPG Cutter</span></td>
+                                <td><span style="color:#ef4444; font-weight:800;">88.4% [HIGH RISK]</span><br><span style="font-size:0.75rem; color:#d4d4d8;">ALPR & Acoustic Traps Active</span></td>
+                            </tr>
+                            <tr class="row-high">
+                                <td><strong style="color:#ffffff;">FIR #0411/2026</strong><br><span style="color:#71717a; font-size:0.75rem;">Whitefield Cyber PS</span></td>
+                                <td><strong>BENGALURU</strong><br><span style="color:#f97316; font-weight:700;">14:20 PM (DAY)</span></td>
+                                <td><strong>CYBER FRAUD / SYNDICATE</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">APK Trojan Crypto Drain</span></td>
+                                <td><span class="nlp-badge nlp-person">Nabil Akhtar</span><br><span class="nlp-badge nlp-syndicate">Wallet 0x81B...c9</span></td>
+                                <td><span style="color:#f97316; font-weight:800;">82.1% [HIGH RISK]</span><br><span style="font-size:0.75rem; color:#d4d4d8;">Freeze Mule Accounts & KYC</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:#ffffff;">FIR #0229/2026</strong><br><span style="color:#71717a; font-size:0.75rem;">Belagavi Highway PS</span></td>
+                                <td><strong>BELAGAVI</strong><br><span style="color:#ef4444; font-weight:700;">01:10 AM (NIGHT)</span></td>
+                                <td><strong>ARMED INTERCEPTION</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">Cargo Truck Ambush</span></td>
+                                <td><span class="nlp-badge nlp-person">Imran Khan</span><br><span class="nlp-badge nlp-vehicle">KA-22-B-8819</span></td>
+                                <td><span style="color:#f97316; font-weight:800;">79.5% [HIGH RISK]</span><br><span style="font-size:0.75rem; color:#d4d4d8;">Toll Plaza Border Alert (MH/KA)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:#ffffff;">FIR #0112/2026</strong><br><span style="color:#71717a; font-size:0.75rem;">Mangaluru North PS</span></td>
+                                <td><strong>MANGALURU</strong><br><span style="color:#a1a1aa; font-weight:700;">19:45 PM (EVENING)</span></td>
+                                <td><strong>HAWALA / MONEY LAUNDERING</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">Shell Company Crypto Transfer</span></td>
+                                <td><span class="nlp-badge nlp-person">Rohan "Mule" Sharma</span><br><span class="nlp-badge nlp-syndicate">Jamtara-South Cell</span></td>
+                                <td><span style="color:#a1a1aa; font-weight:800;">71.0% [MODERATE]</span><br><span style="font-size:0.75rem; color:#d4d4d8;">ED & FIU Cross-Verification</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:#ffffff;">FIR #0059/2026</strong><br><span style="color:#71717a; font-size:0.75rem;">Kalaburagi Town PS</span></td>
+                                <td><strong>KALABURAGI</strong><br><span style="color:#a1a1aa; font-weight:700;">09:15 AM (MORNING)</span></td>
+                                <td><strong>PROPERTY THEFT / CHAIN SNATCHING</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">High-Speed Bike Intercept</span></td>
+                                <td><span class="nlp-badge nlp-person">Shiva @ Battery</span><br><span class="nlp-badge nlp-vehicle">Bajaj Pulsar Black</span></td>
+                                <td><span style="color:#a1a1aa; font-weight:800;">64.2% [MODERATE]</span><br><span style="font-size:0.75rem; color:#d4d4d8;">Morning School Patrol Reinforcement</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 2: CRIMINOLOGICAL NETWORK & LINK ANALYSIS -->
+            <div id="tab-network" class="tab-content" style="display: none;">
+                <header style="margin-bottom: 1.5rem; border-bottom: 1px solid #27272a; padding-bottom: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h1 style="font-size: 1.85rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; margin-bottom: 0.3rem;">Criminological Network & Link Analysis</h1>
+                            <p style="color: #a1a1aa; font-size: 0.95rem;">Replaces independent silos by visually connecting fragmented suspect, victim, and location data.</p>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; align-items: center;">
+                            <span style="background: #18181b; color: #ffffff; border: 1px solid #ffffff; padding: 0.4rem 0.85rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">ZIA Graph Engine: Online</span>
+                            <span style="background: #09090b; color: #a1a1aa; border: 1px solid #3f3f46; padding: 0.4rem 0.85rem; border-radius: 4px; font-size: 0.75rem; font-family: monospace;">0ms Query Latency</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Top Network Command Metrics & Filters Bar -->
+                <div style="background: #09090b; border: 1px solid #27272a; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+                        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                            <div>
+                                <span style="font-size: 0.65rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Active Graph Nodes</span>
+                                <strong style="font-size: 1.35rem; color: #ffffff; font-weight: 800;">301 <span style="font-size: 0.75rem; color: #a1a1aa; font-weight: 500;">Suspects</span></strong>
+                            </div>
+                            <div style="border-left: 1px solid #27272a; padding-left: 1.5rem;">
+                                <span style="font-size: 0.65rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Co-Offending Links</span>
+                                <strong style="font-size: 1.35rem; color: #ffffff; font-weight: 800;">810 <span style="font-size: 0.75rem; color: #a1a1aa; font-weight: 500;">Edges</span></strong>
+                            </div>
+                            <div style="border-left: 1px solid #27272a; padding-left: 1.5rem;">
+                                <span style="font-size: 0.65rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Syndicate Clusters</span>
+                                <strong style="font-size: 1.35rem; color: #ffffff; font-weight: 800;">12 <span style="font-size: 0.75rem; color: #a1a1aa; font-weight: 500;">Core Gangs</span></strong>
+                            </div>
+                            <div style="border-left: 1px solid #27272a; padding-left: 1.5rem;">
+                                <span style="font-size: 0.65rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Interstate Vectors</span>
+                                <strong style="font-size: 1.35rem; color: #ffffff; font-weight: 800;">3 <span style="font-size: 0.75rem; color: #a1a1aa; font-weight: 500;">MH/KA/TN</span></strong>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                            <span style="font-size: 0.75rem; color: #a1a1aa; font-weight: 700; margin-right: 0.5rem;">Focus Topology:</span>
+                            <button class="filter-select net-filter-btn active" data-filter="all" style="background: #ffffff; color: #000000; border-color: #ffffff;">All Syndicates</button>
+                            <button class="filter-select net-filter-btn" data-filter="alpha">Alpha (Highwaymen)</button>
+                            <button class="filter-select net-filter-btn" data-filter="beta">Beta (Night Cutters)</button>
+                            <button class="filter-select net-filter-btn" data-filter="gamma">Gamma (Jamtara-South)</button>
+                            <button class="filter-select net-filter-btn" data-filter="bridge" style="border-color: #a1a1aa;">Bridges & Financiers</button>
+                    </div>
+                </div>
+
+                <!-- Peak Criminological Analytical Matrix & Network Architecture Breakdown -->
+                <div style="background: #000000; border: 1px solid #3f3f46; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.6);">
+                    <div style="border-right: 1px solid #27272a; padding-right: 1rem;">
+                        <span style="font-size: 0.65rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Clustering Coefficient</span>
+                        <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 4px;">
+                            <strong style="font-size: 1.25rem; color: #ffffff; font-weight: 800; font-family: monospace;">0.0890</strong>
+                            <span style="font-size: 0.7rem; color: #a1a1aa; font-weight: 700; text-transform: uppercase;">High Modular MO</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: #71717a; margin: 4px 0 0 0;">Indicates tight-knit organized crime cells operating with closed communication loops.</p>
+                    </div>
+
+                    <div style="border-right: 1px solid #27272a; padding-right: 1rem;">
+                        <span style="font-size: 0.65rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Network Diameter & Reach</span>
+                        <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 4px;">
+                            <strong style="font-size: 1.25rem; color: #ffffff; font-weight: 800; font-family: monospace;">6.0 Hops</strong>
+                            <span style="font-size: 0.7rem; color: #a1a1aa; font-weight: 700; text-transform: uppercase;">Max Geodesic Path</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: #71717a; margin: 4px 0 0 0;">Maximum social distance between any two co-offending suspects across Karnataka.</p>
+                    </div>
+
+                    <div style="border-right: 1px solid #27272a; padding-right: 1rem;">
+                        <span style="font-size: 0.65rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Kingpin Eigenvector Index</span>
+                        <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 4px;">
+                            <strong style="font-size: 1.25rem; color: #ffffff; font-weight: 800; font-family: monospace;">0.948 MAX</strong>
+                            <span style="font-size: 0.7rem; color: #ffffff; font-weight: 700; background: #18181b; padding: 2px 6px; border-radius: 3px; border: 1px solid #3f3f46;">ID: KA-8812</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: #71717a; margin: 4px 0 0 0;">Ravi Kumar (Alpha Leader) holds the highest influence vector over cross-district crime.</p>
+                    </div>
+
+                    <div>
+                        <span style="font-size: 0.65rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Modus Operandi Homophily</span>
+                        <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 4px;">
+                            <strong style="font-size: 1.25rem; color: #ffffff; font-weight: 800; font-family: monospace;">84.2% Match</strong>
+                            <span style="font-size: 0.7rem; color: #a1a1aa; font-weight: 700; text-transform: uppercase;">Cross-District FIRs</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: #71717a; margin: 4px 0 0 0;">High correlation of identical weapon calibers and ALPR vectors across disparate FIRs.</p>
+                    </div>
+                </div>
+
+                <!-- Main Graph & Association Stream Split -->
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <!-- Left: Syndicate Graph -->
+                    <div class="card" style="flex: 2; min-width: 420px; display: flex; flex-direction: column;">
+                        <div class="card-header" style="background: #121215; border-bottom: 1px solid #27272a; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Syndicate Relationship & Link Mapping</h3>
+                                <span style="font-size: 0.75rem; color: #a1a1aa;">Interactive Vis.js ForceAtlas2 Topology // 301 Nodes & 810 Edges</span>
+                            </div>
+                            <span class="badge" style="background: #18181b; color: #ffffff; border: 1px solid #ffffff; padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Graph Nodes Connected</span>
+                        </div>
+                        <div style="padding: 1rem; background: #000000; border-radius: 0 0 8px 8px; flex: 1; display: flex; flex-direction: column;">
+                            <iframe id="syndicate-iframe" src="syndicate_graph.html" style="width: 100%; height: 620px; border: 1px solid #27272a; border-radius: 6px; background: #000000;"></iframe>
+                            
+                            <!-- Interactive Node Inspector Bar -->
+                            <div id="node-inspector-bar" style="margin-top: 1rem; background: #09090b; border: 1px solid #3f3f46; border-left: 4px solid #ffffff; padding: 1rem 1.25rem; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                                <div>
+                                    <span style="font-size: 0.7rem; color: #71717a; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; display: block;">Live Node Telemetry Overlay // Inspector</span>
+                                    <strong id="inspector-title" style="font-size: 0.95rem; color: #ffffff; display: block; margin-top: 2px;">Select an SCRB alert or gang dossier below to inspect network links.</strong>
+                                </div>
+                                <div id="inspector-meta" style="display: flex; gap: 1rem; font-family: monospace; font-size: 0.8rem; color: #a1a1aa;">
+                                    <span>STATUS: <strong style="color: #ffffff;">STANDBY</strong></span>
+                                    <span>LINKS: <strong style="color: #ffffff;">--</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Association Detection Feed -->
+                    <div class="card" style="flex: 1; min-width: 320px; display: flex; flex-direction: column; background: #000000; border: 1px solid #27272a;">
+                        <div class="card-header" style="background: #121215; border-bottom: 1px solid #27272a; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div class="pulse-indicator" style="width: 8px; height: 8px; background: #ffffff; border-radius: 50%; box-shadow: 0 0 8px #ffffff;"></div>
+                                <h3 style="font-size: 1rem; font-weight: 700; color: #ffffff; margin: 0;">AI Association Detection</h3>
+                            </div>
+                            <span class="badge" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 0.25rem 0.6rem;">Live SCRB Feed</span>
+                        </div>
+                        <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; overflow-y: auto; max-height: 615px;">
+                            
+                            <!-- Alert 1 -->
+                            <div class="scrb-alert-box" data-target="scorpio" style="background: #09090b; border: 1px solid #27272a; border-left: 3px solid #ffffff; padding: 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-size: 0.7rem; color: #ffffff; font-weight: 800; letter-spacing: 1px; background: #18181b; padding: 0.2rem 0.5rem; border: 1px solid #3f3f46; border-radius: 3px;">CROSS-DISTRICT LINK</span>
+                                    <span style="font-size: 0.7rem; color: #71717a; font-family: monospace;">ALPR-2204</span>
+                                </div>
+                                <p style="font-size: 0.85rem; color: #d4d4d8; margin-bottom: 8px; line-height: 1.5;"><strong>White Scorpio (KA-04-EY-1923)</strong> identified at 3 independent ATM dacoity sites across Bengaluru and Mandya districts.</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #a1a1aa; border-top: 1px solid #18181b; padding-top: 6px;">
+                                    <span>Vector: Bengaluru ↔ Mandya</span>
+                                    <span style="color: #ffffff; font-weight: 700; text-decoration: underline;">[Inspect Vector →]</span>
+                                </div>
+                            </div>
+
+                            <!-- Alert 2 -->
+                            <div class="scrb-alert-box" data-target="ballistics" style="background: #09090b; border: 1px solid #27272a; border-left: 3px solid #e5e7eb; padding: 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-size: 0.7rem; color: #ffffff; font-weight: 800; letter-spacing: 1px; background: #18181b; padding: 0.2rem 0.5rem; border: 1px solid #3f3f46; border-radius: 3px;">BALLISTIC & MO MATCH</span>
+                                    <span style="font-size: 0.7rem; color: #71717a; font-family: monospace;">FSL-8819</span>
+                                </div>
+                                <p style="font-size: 0.85rem; color: #d4d4d8; margin-bottom: 8px; line-height: 1.5;"><strong>7.65mm shell casing</strong> from Dharwad highway interception matches weapon used in Belagavi check-post ambush.</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #a1a1aa; border-top: 1px solid #18181b; padding-top: 6px;">
+                                    <span>Weapon ID: 7.65-CZ-Mod</span>
+                                    <span style="color: #ffffff; font-weight: 700; text-decoration: underline;">[Compare Striations →]</span>
+                                </div>
+                            </div>
+
+                            <!-- Alert 3 -->
+                            <div class="scrb-alert-box" data-target="crypto" style="background: #09090b; border: 1px solid #27272a; border-left: 3px solid #a1a1aa; padding: 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-size: 0.7rem; color: #ffffff; font-weight: 800; letter-spacing: 1px; background: #18181b; padding: 0.2rem 0.5rem; border: 1px solid #3f3f46; border-radius: 3px;">FINANCIAL SYNDICATE</span>
+                                    <span style="font-size: 0.7rem; color: #71717a; font-family: monospace;">CHAIN-091</span>
+                                </div>
+                                <p style="font-size: 0.85rem; color: #d4d4d8; margin-bottom: 8px; line-height: 1.5;"><strong>Crypto wallet 0x81B...c9</strong> tagged across 14 separate Cyber Crime FIRs in Mangaluru, Udupi, and Mysuru.</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #a1a1aa; border-top: 1px solid #18181b; padding-top: 6px;">
+                                    <span>Laundering Flow: 14 FIRs</span>
+                                    <span style="color: #ffffff; font-weight: 700; text-decoration: underline;">[Trace Ledger →]</span>
+                                </div>
+                            </div>
+
+                            <!-- Alert 4 -->
+                            <div class="scrb-alert-box" data-target="manja" style="background: #09090b; border: 1px solid #27272a; border-left: 3px solid #ffffff; padding: 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-size: 0.7rem; color: #ffffff; font-weight: 800; letter-spacing: 1px; background: #18181b; padding: 0.2rem 0.5rem; border: 1px solid #3f3f46; border-radius: 3px;">REPEAT OFFENDER ALERT</span>
+                                    <span style="font-size: 0.7rem; color: #71717a; font-family: monospace;">AFIS-3390</span>
+                                </div>
+                                <p style="font-size: 0.85rem; color: #d4d4d8; margin-bottom: 8px; line-height: 1.5;">Biometric match confirms suspect <strong>'Manja @ Cutter'</strong> active in 6 recent house break-ins in Mysuru South.</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #a1a1aa; border-top: 1px solid #18181b; padding-top: 6px;">
+                                    <span>Alias: Night Cutters Beta</span>
+                                    <span style="color: #ffffff; font-weight: 700; text-decoration: underline;">[Open Biometric Dossier →]</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repeat Offender Tracking & MO Matrix -->
+                <div style="border-top: 1px solid #27272a; padding-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h3 style="color: #ffffff; font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.5px;">Repeat Offender Tracking & Modus Operandi (MO) Profiles</h3>
+                            <p style="color: #a1a1aa; font-size: 0.85rem;">Detailed tactical profiling, active warrants, and interstate surveillance matrices for priority KSP targets.</p>
+                        </div>
+                        <span style="background: #121215; color: #ffffff; border: 1px solid #3f3f46; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">3 High-Value Targets Tracked</span>
+                    </div>
+
+                    <div class="mo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+                        
+                        <!-- Syndicate Alpha -->
+                        <div class="mo-card executive-dossier" data-syndicate="alpha" style="background: #09090b; border: 1px solid #3f3f46; border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: all 0.2s ease;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; border-bottom: 1px solid #27272a; padding-bottom: 1rem;">
+                                    <div>
+                                        <span style="font-size: 0.7rem; color: #71717a; font-family: monospace; font-weight: 700; display: block;">DOSSIER ID: KSP-SYN-001</span>
+                                        <h3 style="font-size: 1.25rem; color: #ffffff; font-weight: 800; margin: 4px 0 0 0;">Syndicate Alpha — "The Highwaymen"</h3>
+                                    </div>
+                                    <span style="background: #ffffff; color: #000000; font-size: 0.7rem; font-weight: 800; padding: 0.35rem 0.75rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Active Warrant</span>
+                                </div>
+
+                                <!-- Threat Level Bar -->
+                                <div style="margin-bottom: 1.25rem;">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #a1a1aa; margin-bottom: 6px;">
+                                        <span>AI Threat Severity Score</span>
+                                        <strong style="color: #ffffff;">94.8 / 100 [CRITICAL]</strong>
+                                    </div>
+                                    <div style="width: 100%; height: 6px; background: #18181b; border-radius: 3px; overflow: hidden; border: 1px solid #27272a;">
+                                        <div style="width: 95%; height: 100%; background: #ffffff;"></div>
+                                    </div>
+                                </div>
+
+                                <div style="background: #000000; border: 1px solid #27272a; padding: 1rem; border-radius: 6px; margin-bottom: 1.25rem;">
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; margin-bottom: 8px; line-height: 1.6;"><strong>Key Suspects:</strong> <span style="color: #ffffff; font-family: monospace;">Ravi Kumar</span>, <span style="color: #ffffff; font-family: monospace;">"Battery" Shiva</span>, <span style="color: #ffffff; font-family: monospace;">Imran Khan</span></p>
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; margin: 0; line-height: 1.6;"><strong>Active Zones:</strong> Belagavi, Dharwad, Haveri (NH-48 Corridor)</p>
+                                </div>
+
+                                <div style="margin-bottom: 1.25rem;">
+                                    <span style="font-size: 0.75rem; color: #a1a1aa; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; display: block; margin-bottom: 6px;">Modus Operandi (MO) Blueprint:</span>
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; background: #121215; border-left: 3px solid #ffffff; padding: 0.85rem; border-radius: 0 6px 6px 0; line-height: 1.6; margin: 0;">
+                                        High-speed highway interception of transport cargo between <strong>01:00 - 03:30 AM</strong> using fake police check-post barricades and strobe lights. Armed with 7.65mm modified weapons.
+                                    </p>
+                                </div>
+
+                                <div class="mo-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Highway Robbery</span>
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Night Watch</span>
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Cross-Border (MH/KA)</span>
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Surveillance</span>
+                                </div>
+                            </div>
+
+                            <button class="dossier-action-btn" data-action="alpha-warrant" style="width: 100%; background: #ffffff; color: #000000; border: 1px solid #ffffff; padding: 0.85rem; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease;">Transmit Warrant to Patrols →</button>
+                        </div>
+
+                        <!-- Syndicate Beta -->
+                        <div class="mo-card executive-dossier" data-syndicate="beta" style="background: #09090b; border: 1px solid #3f3f46; border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: all 0.2s ease;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; border-bottom: 1px solid #27272a; padding-bottom: 1rem;">
+                                    <div>
+                                        <span style="font-size: 0.7rem; color: #71717a; font-family: monospace; font-weight: 700; display: block;">DOSSIER ID: KSP-SYN-002</span>
+                                        <h3 style="font-size: 1.25rem; color: #ffffff; font-weight: 800; margin: 4px 0 0 0;">Syndicate Beta — "Night Cutters"</h3>
+                                    </div>
+                                    <span style="background: #18181b; color: #ffffff; border: 1px solid #ffffff; font-size: 0.7rem; font-weight: 800; padding: 0.35rem 0.75rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Surveillance</span>
+                                </div>
+
+                                <!-- Threat Level Bar -->
+                                <div style="margin-bottom: 1.25rem;">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #a1a1aa; margin-bottom: 6px;">
+                                        <span>AI Threat Severity Score</span>
+                                        <strong style="color: #ffffff;">88.4 / 100 [HIGH RISK]</strong>
+                                    </div>
+                                    <div style="width: 100%; height: 6px; background: #18181b; border-radius: 3px; overflow: hidden; border: 1px solid #27272a;">
+                                        <div style="width: 88%; height: 100%; background: #e5e7eb;"></div>
+                                    </div>
+                                </div>
+
+                                <div style="background: #000000; border: 1px solid #27272a; padding: 1rem; border-radius: 6px; margin-bottom: 1.25rem;">
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; margin-bottom: 8px; line-height: 1.6;"><strong>Key Suspects:</strong> <span style="color: #ffffff; font-family: monospace;">Manjunath @ Manja</span>, <span style="color: #ffffff; font-family: monospace;">Prakash Rao</span></p>
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; margin: 0; line-height: 1.6;"><strong>Active Zones:</strong> Mysuru City, Mandya, Hassan</p>
+                                </div>
+
+                                <div style="margin-bottom: 1.25rem;">
+                                    <span style="font-size: 0.75rem; color: #a1a1aa; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; display: block; margin-bottom: 6px;">Modus Operandi (MO) Blueprint:</span>
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; background: #121215; border-left: 3px solid #e5e7eb; padding: 0.85rem; border-radius: 0 6px 6px 0; line-height: 1.6; margin: 0;">
+                                        Commercial jewelry and pawn shop break-ins during stormy monsoon nights; use of <strong>portable oxygen-LPG gas cutters</strong> to breach vault doors while ambient noise masks breach.
+                                    </p>
+                                </div>
+
+                                <div class="mo-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Gas Cutter MO</span>
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Commercial Burglary</span>
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Monsoon Pattern</span>
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Interpol Notice</span>
+                                </div>
+                            </div>
+
+                            <button class="dossier-action-btn" data-action="beta-surveillance" style="width: 100%; background: #18181b; color: #ffffff; border: 1px solid #ffffff; padding: 0.85rem; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease;">Deploy ALPR & Acoustic Traps →</button>
+                        </div>
+
+                        <!-- Syndicate Gamma -->
+                        <div class="mo-card executive-dossier" data-syndicate="gamma" style="background: #09090b; border: 1px solid #3f3f46; border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: all 0.2s ease;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; border-bottom: 1px solid #27272a; padding-bottom: 1rem;">
+                                    <div>
+                                        <span style="font-size: 0.7rem; color: #71717a; font-family: monospace; font-weight: 700; display: block;">DOSSIER ID: KSP-SYN-003</span>
+                                        <h3 style="font-size: 1.25rem; color: #ffffff; font-weight: 800; margin: 4px 0 0 0;">Syndicate Gamma — "Jamtara-South"</h3>
+                                    </div>
+                                    <span style="background: #18181b; color: #ffffff; border: 1px solid #a1a1aa; font-size: 0.7rem; font-weight: 800; padding: 0.35rem 0.75rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Interpol Notice</span>
+                                </div>
+
+                                <!-- Threat Level Bar -->
+                                <div style="margin-bottom: 1.25rem;">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #a1a1aa; margin-bottom: 6px;">
+                                        <span>AI Threat Severity Score</span>
+                                        <strong style="color: #ffffff;">91.2 / 100 [CRITICAL]</strong>
+                                    </div>
+                                    <div style="width: 100%; height: 6px; background: #18181b; border-radius: 3px; overflow: hidden; border: 1px solid #27272a;">
+                                        <div style="width: 91%; height: 100%; background: #ffffff;"></div>
+                                    </div>
+                                </div>
+
+                                <div style="background: #000000; border: 1px solid #27272a; padding: 1rem; border-radius: 6px; margin-bottom: 1.25rem;">
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; margin-bottom: 8px; line-height: 1.6;"><strong>Key Suspects:</strong> <span style="color: #ffffff; font-family: monospace;">Syed Nabil</span>, <span style="color: #ffffff; font-family: monospace;">Rohan Sharma</span>, <span style="color: #ffffff; font-family: monospace;">4 Unidentified Mules</span></p>
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; margin: 0; line-height: 1.6;"><strong>Active Zones:</strong> Bengaluru Urban, Mangaluru, Udupi</p>
+                                </div>
+
+                                <div style="margin-bottom: 1.25rem;">
+                                    <span style="font-size: 0.75rem; color: #a1a1aa; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; display: block; margin-bottom: 6px;">Modus Operandi (MO) Blueprint:</span>
+                                    <p style="font-size: 0.85rem; color: #d4d4d8; background: #121215; border-left: 3px solid #a1a1aa; padding: 0.85rem; border-radius: 0 6px 6px 0; line-height: 1.6; margin: 0;">
+                                        Digital identity theft via <strong>APK phishing apps disguised as BESCOM electricity bill payment portals</strong>; immediate laundering via mule accounts and decentralized crypto mixing.
+                                    </p>
+                                </div>
+
+                                <div class="mo-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">APK Phishing</span>
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Mule Networks</span>
+                                    <span class="mo-tag" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46; font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 4px;">Cyber Fraud</span>
+                                </div>
+                            </div>
+
+                            <button class="dossier-action-btn" data-action="gamma-freeze" style="width: 100%; background: #18181b; color: #ffffff; border: 1px solid #ffffff; padding: 0.85rem; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease;">Freeze Crypto Mule Accounts →</button>
+                        </div>
+
+                    </div>
+
+                    <!-- Modus Operandi (MO) Cross-Jurisdictional Timeline Matrix Table -->
+                    <div class="brutal-table-container" style="margin-top: 2rem;">
+                        <div style="padding: 1rem 1.25rem; background: #121215; border-bottom: 1px solid #27272a; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <div>
+                                <strong style="color: #ffffff; font-size: 0.95rem; text-transform: uppercase;">Modus Operandi (MO) Cross-Jurisdictional Timeline Matrix</strong>
+                                <span style="display: block; font-size: 0.75rem; color: #a1a1aa; margin-top: 2px;">Visualizing syndicate behavioral fingerprints across all 31 Karnataka police districts.</span>
+                            </div>
+                            <span style="background: #ffffff; color: #000000; font-family: monospace; font-size: 0.75rem; font-weight: 800; padding: 4px 8px; border-radius: 3px;">FSL / AFIS LINKED</span>
+                        </div>
+                        <table class="brutal-table">
+                            <thead>
+                                <tr>
+                                    <th>SYNDICATE / ID</th>
+                                    <th>PRIMARY JURISDICTION</th>
+                                    <th>BEHAVIORAL MO FINGERPRINT</th>
+                                    <th>WEAPON / TOOL VECTOR</th>
+                                    <th>FSL / AFIS EVIDENCE LINK</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="row-critical">
+                                    <td><strong style="color:#ffffff;">Alpha ("Highwaymen")</strong><br><span style="color:#71717a; font-size:0.75rem;">KSP-SYN-001</span></td>
+                                    <td><strong>BELAGAVI, DHARWAD, HAVERI</strong><br><span style="color:#ef4444; font-weight:700;">NH-48 Corridor</span></td>
+                                    <td><strong>HIGH-SPEED CARGO AMBUSH</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">01:00 - 03:30 AM // Fake Checkposts</span></td>
+                                    <td><span style="color:#ffffff;">7.65mm Modified Pistol</span><br><span style="color:#71717a; font-size:0.75rem;">White Scorpio KA-04-EY-1923</span></td>
+                                    <td><span style="color:#ef4444; font-weight:800;">99.4% FSL Ballistic Match</span><br><span style="font-size:0.75rem; color:#d4d4d8;">Shell Casings: Dharwad & Belagavi</span></td>
+                                </tr>
+                                <tr class="row-high">
+                                    <td><strong style="color:#ffffff;">Beta ("Night Cutters")</strong><br><span style="color:#71717a; font-size:0.75rem;">KSP-SYN-002</span></td>
+                                    <td><strong>MYSURU, MANDYA, HASSAN</strong><br><span style="color:#f97316; font-weight:700;">Commercial Hubs</span></td>
+                                    <td><strong>STORM MONSOON VAULT BREACH</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">02:00 - 04:30 AM // Rain Noise Masking</span></td>
+                                    <td><span style="color:#ffffff;">Portable Oxygen-LPG Gas Cutter</span><br><span style="color:#71717a; font-size:0.75rem;">Acoustic Vault Drill</span></td>
+                                    <td><span style="color:#f97316; font-weight:800;">96.2% Biometric AFIS Match</span><br><span style="font-size:0.75rem; color:#d4d4d8;">Fingerprints: Manja @ Cutter</span></td>
+                                </tr>
+                                <tr class="row-high">
+                                    <td><strong style="color:#ffffff;">Gamma ("Jamtara-South")</strong><br><span style="color:#71717a; font-size:0.75rem;">KSP-SYN-003</span></td>
+                                    <td><strong>BENGALURU URBAN, UDUPI</strong><br><span style="color:#f97316; font-weight:700;">IT & Financial Sectors</span></td>
+                                    <td><strong>APK TROJAN & CRYPTO LAUNDERING</strong><br><span style="color:#a1a1aa; font-size:0.75rem;">24/7 Automated // Phishing SMS</span></td>
+                                    <td><span style="color:#ffffff;">Fake BESCOM Bill APK Trojan</span><br><span style="color:#71717a; font-size:0.75rem;">Decentralized Crypto Mixers</span></td>
+                                    <td><span style="color:#f97316; font-weight:800;">14 FIR Cross-Linkage</span><br><span style="font-size:0.75rem; color:#d4d4d8;">Wallet: 0x81B...c9 Tagged</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: SOCIOLOGICAL & AI PREDICTIVE ENGINE (ZIA) -->
+            <div id="tab-predictive" class="tab-content" style="display: none;">
+                <header>
+                    <h1>Sociological & AI-Driven Predictive Dashboards</h1>
+                    <p>SCRB Strategic Intelligence Hub — Correlating socio-economic patterns with predictive crime risk scoring.</p>
+                </header>
+
+                <!-- Socio-Economic Correlation ("The Why Behind The Where") -->
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+                    <h3 style="color: var(--text-primary); font-size: 1.15rem; font-weight: 700; margin: 0;">Socio-Economic Correlation — "The Why Behind The Where"</h3>
+                    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                        <span style="font-size: 0.75rem; color: #a1a1aa; font-weight: 700;">Simulate Variable Factor:</span>
+                        <button class="socio-toggle-btn active" data-socio="urban">🏙️ Urban Density</button>
+                        <button class="socio-toggle-btn" data-socio="migration">🌾 Seasonal Migration</button>
+                        <button class="socio-toggle-btn" data-socio="highway">🛣️ Highway Proximity</button>
+                        <button class="socio-toggle-btn" data-socio="unemployment">💼 Youth Unemployment</button>
+                    </div>
+                </div>
+
+                <div class="socio-grid" id="socio-cards-container">
+                    <div class="socio-card" id="socio-card-main">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                            <h4 id="socio-title" style="margin: 0; font-size: 0.95rem; color: #ffffff;"><span>■</span> Urbanization & Transient Density Overlay</h4>
+                            <span id="socio-corr-val" class="corr-val-display">r = 0.82 [STRONG]</span>
+                        </div>
+                        <p id="socio-desc" style="font-size: 0.85rem; color: #d4d4d8; line-height: 1.5; margin-bottom: 1rem;">Rapid IT corridor expansion in Bengaluru Urban & Mysuru shows a strong positive correlation (<strong>r = 0.82</strong>) with digital financial fraud and property theft due to high transient population density.</p>
+                        <div class="corr-meter"><div id="socio-bar-fill" class="corr-fill" style="width: 82%;"></div></div>
+                    </div>
+                    <div class="socio-card">
+                        <h4><span>■</span> Seasonal Labor Migration Hubs</h4>
+                        <p>Agricultural off-seasons in northern districts (Kalaburagi, Vijayapura) correlate with a 35% seasonal rise in property offenses, indicating economic push-factors driving localized crime.</p>
+                        <div class="corr-meter"><div class="corr-fill" style="width: 65%;"></div></div>
+                    </div>
+                    <div class="socio-card">
+                        <h4><span>■</span> Transit Corridor Proximity</h4>
+                        <p>89% of organized dacoity incidents occur within 15 km of National Highways (NH-48, NH-66), providing syndicates rapid escape vectors across interstate borders (MH/GA/TN).</p>
+                        <div class="corr-meter"><div class="corr-fill" style="width: 89%;"></div></div>
+                    </div>
+                </div>
+
+                <!-- AI Predictive Workbench -->
+                <section class="visuals-grid">
+                    <div class="card" style="grid-column: 1 / -1;">
+                        <div class="card-header">
+                            <h3>Predictive Risk Scoring & Anomaly Detection Engine (ZIA)</h3>
+                            <span class="badge" style="background: #18181b; color: #ffffff; border: 1px solid #3f3f46;">Random Forest ML Live</span>
+                        </div>
+                        <div style="padding: 1.5rem;">
+                            <!-- Scenario Presets -->
+                            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; align-items: center;">
+                                <span style="font-size: 0.85rem; color: #a1a1aa; font-weight: 600;">Quick Scenario Presets:</span>
+                                <button class="filter-select scenario-btn" data-scenario="dharwad-night">📍 Belagavi / Dharwad Highway (Night Watch)</button>
+                                <button class="filter-select scenario-btn" data-scenario="mysuru-burglary">📍 Mysuru Commercial Hub (Monsoon Night)</button>
+                                <button class="filter-select scenario-btn" data-scenario="bengaluru-cyber">📍 Bengaluru IT Corridor (Cyber Fraud)</button>
+                            </div>
+
+                            <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 320px;">
+                                    <label style="font-size: 0.75rem; color: #a1a1aa; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 6px;">AI Telemetry Payload (JSON):</label>
+                                    <textarea id="ml-payload" style="width: 100%; height: 180px; background: #000000; color: #ffffff; border: 1px solid #3f3f46; border-radius: 6px; padding: 1rem; font-family: monospace; font-size: 0.85rem;">{
+  "District": "DHARWAD",
+  "TimeOfDay": "NIGHT",
+  "Category": "FIR",
+  "CrimeHead": "ROBBERY",
+  "VictimCount": 2,
+  "AccusedCount": 5,
+  "HistoricalSpike": true,
+  "HighwayDistanceKm": 2.5
+}</textarea>
+                                </div>
+                                <div style="flex: 1; min-width: 320px; display: flex; flex-direction: column; gap: 1rem;">
+                                    <button id="btn-predict" class="glow-button" style="background: #ffffff; color: #000000; border: 1px solid #ffffff; padding: 1.15rem; border-radius: 6px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.95rem;">Initialize AI Predictive Scan</button>
+                                    <div id="ml-result" style="background: #000000; border: 1px solid #27272a; padding: 1.25rem; border-radius: 6px; min-height: 160px; display: flex; flex-direction: column; justify-content: center; font-family: monospace; color: #a1a1aa;">
+                                        <span style="text-align: center;">Waiting for investigator telemetry input... Click 'Initialize AI Predictive Scan'.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PROTOTYPE SECTION: SOLVING UNSTRUCTURED CCTNS INGESTION & ENTITY DE-DUPLICATION -->
+                <div style="margin-top: 2.5rem; border-top: 2px solid #27272a; padding-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <span style="font-size: 0.7rem; color: #71717a; font-family: monospace; font-weight: 700; display: block;">REAL-WORLD PRODUCTION BRIDGE // MODULE 04 & 05</span>
+                            <h2 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 4px 0 0 0;">CCTNS Unstructured FIR NLP Parser & Fellegi-Sunter Entity Resolution</h2>
+                            <p style="font-size: 0.85rem; color: #a1a1aa; margin-top: 4px;">Directly bridges the 5 operational real-world policing gaps: unstructured text parsing, probabilistic criminal deduplication, and evidentiary RBAC audit trails.</p>
+                        </div>
+                        <span style="background: #ffffff; color: #000000; font-size: 0.75rem; font-weight: 800; padding: 0.4rem 0.8rem; border-radius: 4px; text-transform: uppercase;">Real-World Operational Ready</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 1.5rem;">
+                        <!-- Left: NLP Ingestion Sandbox -->
+                        <div class="card" style="background: #09090b; border: 1px solid #3f3f46; border-radius: 8px; display: flex; flex-direction: column;">
+                            <div class="card-header" style="background: #121215; border-bottom: 1px solid #27272a; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+                                <h3 style="font-size: 1rem; font-weight: 700; color: #ffffff; margin: 0;">1. CCTNS Unstructured FIR NLP / NER Ingestion</h3>
+                                <span class="badge" style="background: #18181b; color: #ffffff; border: 1px solid #ffffff; font-size: 0.65rem;">Regex / Heuristic NLP</span>
+                            </div>
+                            <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; flex: 1;">
+                                <label style="font-size: 0.75rem; color: #a1a1aa; text-transform: uppercase; font-weight: 700;">Paste Raw Police Blotter / CCTNS Narrative:</label>
+                                <textarea id="nlp-input" style="width: 100%; height: 110px; background: #000000; color: #ffffff; border: 1px solid #27272a; border-radius: 6px; padding: 0.85rem; font-family: monospace; font-size: 0.8rem;">On night of 24/07 at 02:30 AM, suspect Manjunatha alias Manja @ Cutter along with 3 associates broke into ATM near Mysuru South using gas cutter and fled in White Scorpio KA-04-EY-1923.</textarea>
+                                <button id="btn-nlp-parse" class="glow-button" style="background: #ffffff; color: #000000; border: 1px solid #ffffff; padding: 0.85rem; border-radius: 6px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 0.85rem;">⚡ Execute NLP Entity Extraction & ZIA Risk Linkage</button>
+                                <div id="nlp-output" style="background: #000000; border: 1px solid #27272a; border-radius: 6px; padding: 1rem; font-family: monospace; font-size: 0.8rem; color: #a1a1aa; min-height: 140px;">
+                                    <span>Standby for raw narrative ingestion... Click button to execute entity extraction.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Fellegi-Sunter De-duplication Engine -->
+                        <div class="card" style="background: #09090b; border: 1px solid #3f3f46; border-radius: 8px; display: flex; flex-direction: column;">
+                            <div class="card-header" style="background: #121215; border-bottom: 1px solid #27272a; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+                                <h3 style="font-size: 1rem; font-weight: 700; color: #ffffff; margin: 0;">2. Probabilistic Entity Resolution (Fellegi-Sunter)</h3>
+                                <span class="badge" style="background: #18181b; color: #ffffff; border: 1px solid #ffffff; font-size: 0.65rem;">Fuzzy Record Linkage</span>
+                            </div>
+                            <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; flex: 1;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <input type="text" id="entity-query" value="Manja @ Cutter" placeholder="Enter suspect name or alias..." style="flex: 1; background: #000000; color: #ffffff; border: 1px solid #27272a; border-radius: 6px; padding: 0.85rem; font-family: monospace; font-size: 0.85rem;">
+                                    <button id="btn-entity-resolve" style="background: #ffffff; color: #000000; border: 1px solid #ffffff; padding: 0 1.25rem; border-radius: 6px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 0.85rem;">🔍 Resolve</button>
+                                </div>
+                                <div id="entity-output" style="background: #000000; border: 1px solid #27272a; border-radius: 6px; padding: 1rem; font-family: monospace; font-size: 0.8rem; color: #a1a1aa; min-height: 180px; overflow-y: auto; max-height: 260px;">
+                                    <span>Enter suspect alias (e.g. 'Manja', 'Ravi Kumar', 'Imran') to resolve cross-district identities.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evidentiary Audit Trail Console -->
+                    <div id="audit-trail-console" style="margin-top: 1.5rem; background: #000000; border: 1px solid #3f3f46; border-radius: 8px; padding: 1.25rem; display: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #27272a; padding-bottom: 0.75rem; margin-bottom: 1rem;">
+                            <span style="color: #ffffff; font-weight: 800; font-family: monospace; font-size: 0.85rem;">🛡️ EVIDENTIARY CHAIN OF CUSTODY & IMMUTABLE AUDIT TRAIL // RBAC CLEARANCE LEVEL 4</span>
+                            <button id="btn-close-audit" style="background: transparent; color: #71717a; border: none; cursor: pointer; font-size: 1rem; font-weight: 800;">[ × CLOSE ]</button>
+                        </div>
+                        <div id="audit-log-entries" style="font-family: monospace; font-size: 0.75rem; color: #a1a1aa; display: flex; flex-direction: column; gap: 6px; max-height: 180px; overflow-y: auto;">
+                            <div><span style="color: #ffffff;">[2026-07-26 20:42:01 IST]</span> <strong style="color: #ffffff;">OFFICER KA-OFF-8819</strong> authenticated via SCRB State HQ gateway. Session Token: 0x8F91A...</div>
+                            <div><span style="color: #ffffff;">[2026-07-26 20:42:15 IST]</span> <strong style="color: #ffffff;">QUERY EXECUTION:</strong> Spatiotemporal heatmap generated for 9,935 records across 31 police districts.</div>
+                            <div><span style="color: #ffffff;">[2026-07-26 20:43:10 IST]</span> <strong style="color: #ffffff;">LINK ANALYSIS:</strong> Vis.js ForceAtlas2 topology initialized (301 nodes, 810 edges). Kingpin eigenvectors computed.</div>
+                            <div><span style="color: #ffffff;">[2026-07-26 20:44:05 IST]</span> <strong style="color: #ffffff;">MODEL INFERENCE:</strong> ZIA Random Forest Engine scored telemetry payload for Dharwad Night Robbery. Risk: 79.9% [CRITICAL].</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMAND PALETTE MODAL (CTRL+K) -->
+            <div id="cmd-palette-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); z-index: 10000; justify-content: center; align-items: flex-start; padding-top: 15vh;">
+                <div style="background: #09090b; border: 1px solid #3f3f46; width: 90%; max-width: 560px; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.9); overflow: hidden;">
+                    <div style="padding: 1rem; border-bottom: 1px solid #27272a; display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="color: #a1a1aa; font-size: 1.1rem;">🔍</span>
+                        <input type="text" id="cmd-input" placeholder="Type a command or query (e.g. 'Manja', 'Belagavi', 'dossier')..." style="flex: 1; background: transparent; border: none; color: #ffffff; font-family: monospace; font-size: 0.95rem; outline: none;">
+                        <button id="btn-close-cmd" style="background: #18181b; color: #a1a1aa; border: 1px solid #27272a; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 0.75rem;">ESC</button>
+                    </div>
+                    <div id="cmd-results" style="padding: 0.75rem; max-height: 320px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+                        <div class="cmd-item" data-action="tab-geospatial" style="padding: 0.75rem; background: #121215; border: 1px solid #27272a; border-radius: 4px; cursor: pointer; display: flex; justify-content: space-between;">
+                            <span style="color: #ffffff; font-size: 0.8rem; font-weight: 700;">🗺️ Open Geospatial & Spatiotemporal Hub</span>
+                            <span style="color: #71717a; font-size: 0.7rem;">Tab 1</span>
+                        </div>
+                        <div class="cmd-item" data-action="tab-network" style="padding: 0.75rem; background: #121215; border: 1px solid #27272a; border-radius: 4px; cursor: pointer; display: flex; justify-content: space-between;">
+                            <span style="color: #ffffff; font-size: 0.8rem; font-weight: 700;">🕸️ Open Peak Syndicate Link Analysis</span>
+                            <span style="color: #71717a; font-size: 0.7rem;">Tab 2</span>
+                        </div>
+                        <div class="cmd-item" data-action="tab-predictive" style="padding: 0.75rem; background: #121215; border: 1px solid #27272a; border-radius: 4px; cursor: pointer; display: flex; justify-content: space-between;">
+                            <span style="color: #ffffff; font-size: 0.8rem; font-weight: 700;">⚡ Open ZIA AI Predictive Engine & CCTNS NLP</span>
+                            <span style="color: #71717a; font-size: 0.7rem;">Tab 3</span>
+                        </div>
+                        <div class="cmd-item" data-action="export-dossier" style="padding: 0.75rem; background: #18181b; border: 1px solid #ffffff; border-radius: 4px; cursor: pointer; display: flex; justify-content: space-between;">
+                            <span style="color: #ffffff; font-size: 0.8rem; font-weight: 700;">📄 Generate Official Court-Admissible Dossier</span>
+                            <span style="color: #ffffff; font-size: 0.7rem;">PDF / Print</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COURT DOSSIER PRINT / EXPORT MODAL -->
+            <div id="dossier-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.9); z-index: 10001; justify-content: center; align-items: center; padding: 2rem;">
+                <div style="background: #000000; border: 2px solid #ffffff; width: 90%; max-width: 680px; max-height: 90vh; overflow-y: auto; padding: 2.5rem; border-radius: 6px; box-shadow: 0 0 50px rgba(255,255,255,0.15); font-family: 'Libre Font Mono', monospace;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #ffffff; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <h2 style="color: #ffffff; font-size: 1.5rem; font-weight: 800; margin: 0; text-transform: uppercase;">Karnataka State Police // SCRB</h2>
+                            <span style="color: #a1a1aa; font-size: 0.8rem; display: block; margin-top: 4px;">OFFICIAL COURT-ADMISSIBLE INTELLIGENCE DOSSIER // EXECUTIVE SUMMARY</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <span style="background: #ffffff; color: #000000; font-weight: 800; padding: 4px 8px; font-size: 0.75rem;">CONFIDENTIAL / LEVEL 4</span>
+                            <div style="color: #a1a1aa; font-size: 0.7rem; margin-top: 6px;">HASH: 0x9935-A882-KSP</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem; font-size: 0.85rem; color: #d4d4d8;">
+                        <div style="background: #09090b; border: 1px solid #3f3f46; padding: 1rem; border-radius: 4px;">
+                            <strong style="color: #ffffff; font-size: 0.9rem; display: block; margin-bottom: 8px;">1. SUBJECT & TARGET IDENTIFICATION</strong>
+                            <div>Primary Target: <strong style="color: #ffffff;">Syndicate Alpha ("The Highwaymen") // Ravi Kumar @ Battery</strong></div>
+                            <div>Jurisdiction Span: <strong style="color: #ffffff;">Belagavi, Dharwad, Haveri (NH-48 Corridor)</strong></div>
+                            <div>Active Warrant ID: <strong style="color: #ffffff;">WARR-2026-KA-00918</strong> // Status: <strong style="color: #ffffff;">CRITICAL RISK (79.9%)</strong></div>
+                        </div>
+                        <div style="background: #09090b; border: 1px solid #3f3f46; padding: 1rem; border-radius: 4px;">
+                            <strong style="color: #ffffff; font-size: 0.9rem; display: block; margin-bottom: 8px;">2. AI TELEMETRY & EVIDENTIARY LINKAGE</strong>
+                            <div>• <strong style="color: #ffffff;">Spatiotemporal Convergence:</strong> 240% frequency anomaly detected during Night Watch hours (22:00 - 04:00) along highway toll plazas.</div>
+                            <div>• <strong style="color: #ffffff;">Kingpin Centrality:</strong> Eigenvector Centrality score of 0.942 in 301-node network topology confirms leadership structure.</div>
+                            <div>• <strong style="color: #ffffff;">Vehicle Asset Flagged:</strong> White Scorpio (Reg: KA-04-EY-1923) confirmed across 3 independent ATM/highway dacoity crime scenes.</div>
+                        </div>
+                        <div style="background: #121215; border-left: 4px solid #ffffff; padding: 1rem;">
+                            <strong style="color: #ffffff; font-size: 0.85rem;">INVESTIGATOR RECOMMENDATION & TACTICAL ORDER:</strong>
+                            <p style="margin: 6px 0 0 0; font-size: 0.8rem; color: #a1a1aa;">Authorize immediate deployment of tactical check-post interception units at Dharwad Toll Plaza (NH-48). Issue statewide blue-corner look-out notice for suspect vehicles.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #3f3f46;">
+                        <button id="btn-print-dossier" style="background: #ffffff; color: #000000; border: 1px solid #ffffff; padding: 0.75rem 1.5rem; border-radius: 4px; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 0.85rem;">🖨️ Print / Save PDF Dossier</button>
+                        <button id="btn-close-dossier" style="background: transparent; color: #a1a1aa; border: 1px solid #3f3f46; padding: 0.75rem 1.5rem; border-radius: 4px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 0.85rem;">[ × Close Window ]</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

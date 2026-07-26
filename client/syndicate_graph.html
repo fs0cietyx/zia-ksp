@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KSP Syndicate Relationship & Link Mapping Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Vis.js Network -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            font-family: 'Libre Franklin', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+            overflow: hidden;
+            color: #ffffff;
+        }
+        #mynetwork {
+            width: 100%;
+            height: 100vh;
+            background-color: #000000;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Loading Screen */
+        #loadingBar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.96);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loader-box {
+            width: 420px;
+            background: #09090b;
+            border: 1px solid #3f3f46;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.9);
+            text-align: center;
+        }
+        .loader-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        .loader-subtitle {
+            font-size: 0.75rem;
+            color: #a1a1aa;
+            margin-bottom: 1.25rem;
+            font-family: monospace;
+        }
+        .outerBorder {
+            width: 100%;
+            height: 12px;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        #bar {
+            height: 100%;
+            width: 0%;
+            background: #ffffff;
+            box-shadow: 0 0 10px #ffffff;
+            transition: width 0.1s ease;
+        }
+        #text {
+            font-size: 0.8rem;
+            font-family: monospace;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 0.75rem;
+        }
+
+        /* Top Left HUD Stats */
+        #cyber-hud-left {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(9, 9, 11, 0.94);
+            border: 1px solid #27272a;
+            border-left: 3px solid #ffffff;
+            padding: 14px 18px;
+            border-radius: 6px;
+            z-index: 100;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
+        }
+        .hud-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ffffff;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .stats-grid {
+            display: flex;
+            gap: 16px;
+        }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .hud-stat-label {
+            font-size: 0.65rem;
+            color: #71717a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: monospace;
+        }
+        .hud-stat-val {
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: 800;
+            font-family: monospace;
+        }
+
+        /* Top Right HUD Controls & Search */
+        #cyber-hud-right {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+            z-index: 100;
+        }
+        .control-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: rgba(9, 9, 11, 0.94);
+            border: 1px solid #27272a;
+            padding: 6px;
+            border-radius: 6px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
+        }
+        .hud-btn {
+            background: #18181b;
+            color: #ffffff;
+            border: 1px solid #3f3f46;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hud-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+        .hud-btn.active {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            font-weight: 800;
+        }
+        .search-input {
+            background: #000000;
+            border: 1px solid #3f3f46;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            width: 260px;
+            font-family: monospace;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus {
+            border-color: #ffffff;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        /* Bottom Legend Bar */
+        #cyber-legend {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(9, 9, 11, 0.94);
+            border: 1px solid #27272a;
+            padding: 10px 16px;
+            border-radius: 6px;
+            z-index: 100;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #a1a1aa;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #d4d4d8;
+        }
+        .leg-shape {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+        }
+        .leg-kingpin { background: #ffffff; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); border: 1px solid #71717a; }
+        .leg-lieutenant { background: #d4d4d8; transform: rotate(45deg); border: 1px solid #52525b; }
+        .leg-finance { background: #e5e7eb; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+        .leg-evidence { background: #ffffff; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); border: 1px solid #ef4444; }
+        .leg-vehicle { background: #a1a1aa; }
+        .leg-mule { background: #71717a; border-radius: 50%; }
+
+        /* Bottom Right Edge Inspector Toast */
+        #edge-inspector {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(9, 9, 11, 0.96);
+            border: 1px solid #3f3f46;
+            border-left: 4px solid #ffffff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            z-index: 100;
+            max-width: 360px;
+            display: none;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
+        }
+        .edge-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .edge-desc {
+            font-size: 0.8rem;
+            color: #d4d4d8;
+            font-family: monospace;
+            line-height: 1.4;
+        }
+        .edge-badge {
+            background: #18181b;
+            color: #ffffff;
+            border: 1px solid #71717a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loadingBar">
+        <div class="loader-box">
+            <div class="loader-title">ZIA TOPOLOGY ENGINE // FORCEATLAS2</div>
+            <div class="loader-subtitle">Synthesizing 54 Nodes & 92 Evidentiary Edges across 3 Syndicates</div>
+            <div class="outerBorder">
+                <div id="bar"></div>
+            </div>
+            <div id="text">0%</div>
+        </div>
+    </div>
+
+    <!-- Top Left Stats HUD -->
+    <div id="cyber-hud-left">
+        <div class="hud-title">
+            <div class="pulse-dot"></div>
+            <span>KSP Topology Intelligence Hub // Live State-Wide Link Mapping</span>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-item"><span class="hud-stat-label">Total Nodes</span><span class="hud-stat-val" id="stat-nodes">54</span></div>
+            <div class="stat-item"><span class="hud-stat-label">Active Edges</span><span class="hud-stat-val" id="stat-edges">92</span></div>
+            <div class="stat-item"><span class="hud-stat-label">Kingpins</span><span class="hud-stat-val">3 (Warrants)</span></div>
+            <div class="stat-item"><span class="hud-stat-label">Physics Engine</span><span class="hud-stat-val" id="phys-status" style="color: #ffffff;">ACTIVE</span></div>
+            <div class="stat-item"><span class="hud-stat-label">Hop Filter</span><span class="hud-stat-val" id="hop-status">ALL NODES</span></div>
+        </div>
+    </div>
+
+    <!-- Top Right Control & Search HUD -->
+    <div id="cyber-hud-right">
+        <div class="control-row">
+            <input type="text" id="search-box" class="search-input" placeholder="Search suspect, plate, wallet, FIR..." />
+            <button class="hud-btn" onclick="executeSearch()">🔍 Find</button>
+            <button class="hud-btn" onclick="clearSearch()">✖</button>
+        </div>
+        <div class="control-row">
+            <button class="hud-btn" onclick="centerFit()">⚡ Center Fit</button>
+            <button class="hud-btn" onclick="togglePhysics()" id="phys-btn">🕸️ Freeze Physics</button>
+            <button class="hud-btn" onclick="isolateKingpins()">👑 Isolate Kingpins</button>
+            <button class="hud-btn" onclick="resetView()">🔄 Reset View</button>
+        </div>
+        <div class="control-row">
+            <span style="font-size:0.7rem; color:#71717a; font-family:monospace; padding-left:4px;">LAYOUT:</span>
+            <button class="hud-btn active" id="layout-org" onclick="switchLayout('organic')">Organic (Force)</button>
+            <button class="hud-btn" id="layout-hier" onclick="switchLayout('hierarchical')">Hierarchical</button>
+            <button class="hud-btn" id="layout-circ" onclick="switchLayout('circular')">Circular Ring</button>
+        </div>
+        <div class="control-row">
+            <span style="font-size:0.7rem; color:#71717a; font-family:monospace; padding-left:4px;">ISOLATION:</span>
+            <button class="hud-btn active" id="hop-all" onclick="setHopFilter('all')">Full Grid</button>
+            <button class="hud-btn" id="hop-1" onclick="setHopFilter(1)">1-Hop Direct</button>
+            <button class="hud-btn" id="hop-2" onclick="setHopFilter(2)">2-Hop Network</button>
+            <button class="hud-btn" id="hop-bridge" onclick="highlightBridges()" style="border-color:#ffffff;">🌉 Highlight Bridges</button>
+        </div>
+    </div>
+
+    <!-- Bottom Legend -->
+    <div id="cyber-legend">
+        <span style="font-weight: 800; color: #ffffff;">EVIDENTIARY LEGEND:</span>
+        <div class="legend-item"><span class="leg-shape leg-kingpin"></span> <span>Kingpin / Boss</span></div>
+        <div class="legend-item"><span class="leg-shape leg-lieutenant"></span> <span>Lieutenant / Enforcer</span></div>
+        <div class="legend-item"><span class="leg-shape leg-finance"></span> <span>Financier / Crypto Wallet</span></div>
+        <div class="legend-item"><span class="leg-shape leg-evidence"></span> <span>Forensic Evidence (FSL/AFIS)</span></div>
+        <div class="legend-item"><span class="leg-shape leg-vehicle"></span> <span>ALPR Vehicle Asset</span></div>
+        <div class="legend-item"><span class="leg-shape leg-mule"></span> <span>Mule / Operative / Front</span></div>
+    </div>
+
+    <!-- Edge / Node Inspector Toast -->
+    <div id="edge-inspector">
+        <div class="edge-title">
+            <span id="insp-title-text">EVIDENTIARY LINK</span>
+            <span class="edge-badge" id="insp-badge">FSL MATCH</span>
+        </div>
+        <div class="edge-desc" id="insp-desc-text">
+            Click or hover over any link or node to inspect forensic provenance and criminal association telemetry.
+        </div>
+    </div>
+
+    <!-- Graph Container -->
+    <div id="mynetwork"></div>
+
+    <script>
+        // Global variables
+        let network = null;
+        let nodes = null;
+        let edges = null;
+        let allNodesObj = {};
+        let allEdgesObj = {};
+        let physicsActive = true;
+        let currentLayout = 'organic';
+        let currentHop = 'all';
+        let selectedNodeId = null;
+
+        // Rich Multi-Syndicate Dataset (54 Nodes, 92 Edges)
+        const fallbackNodes = [
+            // --- SYNDICATE ALPHA ("The Highwaymen" - NH-48 Belagavi/Dharwad) ---
+            { id: "alpha_kingpin", label: "Ravi Kumar @ Alpha\n[KINGPIN - WARRANT]", size: 34, shape: "hexagon", color: { background: "#ffffff", border: "#ffffff" }, font: { color: "#ffffff", size: 14, bold: true }, group: "alpha", title: "Syndicate Alpha Leader // Wanted in 14 Highway Dacoity cases", level: 1 },
+            { id: "alpha_lt1", label: "'Battery' Shiva\n[Lieutenant / Enforcer]", size: 24, shape: "diamond", color: { background: "#d4d4d8", border: "#71717a" }, font: { color: "#ffffff", size: 12 }, group: "alpha", title: "Chief Enforcer // Belagavi Checkpost Operations", level: 2 },
+            { id: "alpha_lt2", label: "Imran Khan\n[Logistics / Recon]", size: 24, shape: "diamond", color: { background: "#d4d4d8", border: "#71717a" }, font: { color: "#ffffff", size: 12 }, group: "alpha", title: "Logistics Head // Fake Checkpost Barricades", level: 2 },
+            { id: "alpha_veh1", label: "White Scorpio\nKA-04-EY-1923", size: 22, shape: "square", color: { background: "#a1a1aa", border: "#ffffff" }, font: { color: "#ffffff", size: 11 }, group: "alpha", title: "ALPR Tagged Vehicle // 3 ATM Dacoity vectors", level: 3 },
+            { id: "alpha_veh2", label: "Eicher Truck\nKA-22-B-9011", size: 20, shape: "square", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "alpha", title: "Cargo Loot Transport Vehicle", level: 3 },
+            { id: "alpha_evid1", label: "7.65mm Pistol\nCZ-Mod FSL-8819", size: 24, shape: "triangle", color: { background: "#ffffff", border: "#ef4444" }, font: { color: "#ffffff", size: 11, bold: true }, group: "alpha", title: "Ballistic Match // Dharwad & Belagavi Shell Casings", level: 3 },
+            { id: "alpha_loc1", label: "Dharwad Toll Plaza\nNH-48 Checkpost", size: 20, shape: "box", color: { background: "#18181b", border: "#71717a" }, font: { color: "#ffffff", size: 10 }, group: "alpha", title: "Primary Interception Zone", level: 4 },
+            { id: "alpha_op1", label: "Santosh @ Sandy\n[Driver]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "alpha", title: "Getaway Driver", level: 4 },
+            { id: "alpha_op2", label: "Basavaraj K.\n[Lookout]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "alpha", title: "Highway Spotter", level: 4 },
+            { id: "alpha_op3", label: "Venkatesh M.\n[Weapons Handler]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "alpha", title: "Arms Supplier / Maintenance", level: 4 },
+            { id: "alpha_op4", label: "Kumar @ Kulla\n[Barricade Setup]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "alpha", title: "Fake Police Uniform & Strobe Operator", level: 4 },
+            { id: "alpha_op5", label: "Mahesh P.\n[Cargo Handler]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "alpha", title: "Stolen Cargo Warehouse Manager", level: 4 },
+            { id: "alpha_wh", label: "Haveri Godown #4\n[Stash House]", size: 20, shape: "box", color: { background: "#27272a", border: "#a1a1aa" }, font: { color: "#ffffff", size: 10 }, group: "alpha", title: "Warehouse storing looted electronics & copper", level: 4 },
+
+            // --- SYNDICATE BETA ("Night Cutters" - Mysuru South Burglary) ---
+            { id: "beta_kingpin", label: "Manja @ Cutter\n[KINGPIN - AFIS MATCH]", size: 34, shape: "hexagon", color: { background: "#ffffff", border: "#ffffff" }, font: { color: "#ffffff", size: 14, bold: true }, group: "beta", title: "Syndicate Beta Leader // AFIS Latent Fingerprint Match in 6 Vault Breaches", level: 1 },
+            { id: "beta_lt1", label: "Prakash Rao\n[Lieutenant / Planner]", size: 24, shape: "diamond", color: { background: "#d4d4d8", border: "#71717a" }, font: { color: "#ffffff", size: 12 }, group: "beta", title: "Target Selector & Blueprint Analyst", level: 2 },
+            { id: "beta_lt2", label: "Sunil @ Gas\n[Cutter Specialist]", size: 24, shape: "diamond", color: { background: "#d4d4d8", border: "#71717a" }, font: { color: "#ffffff", size: 12 }, group: "beta", title: "Oxygen-LPG Rig & Thermal Drill Operator", level: 2 },
+            { id: "beta_evid1", label: "AFIS Latent Print\n#MY-2026-99", size: 24, shape: "triangle", color: { background: "#ffffff", border: "#f97316" }, font: { color: "#ffffff", size: 11, bold: true }, group: "beta", title: "96.2% Biometric Match from Mandya & Mysuru crime scenes", level: 3 },
+            { id: "beta_tool", label: "Oxygen-LPG Drill Rig\n[Forensic Tool Hit]", size: 22, shape: "square", color: { background: "#a1a1aa", border: "#ffffff" }, font: { color: "#ffffff", size: 11 }, group: "beta", title: "Acoustic-dampened thermal cutting rig", level: 3 },
+            { id: "beta_loc1", label: "Mysuru South Jeweler\n[Primary Target]", size: 20, shape: "box", color: { background: "#18181b", border: "#71717a" }, font: { color: "#ffffff", size: 10 }, group: "beta", title: "Commercial gold vault breached during monsoon storm", level: 4 },
+            { id: "beta_op1", label: "Raju N.\n[Lookout & Alarm]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "beta", title: "CCTV & Alarm Wire Cutter", level: 4 },
+            { id: "beta_op2", label: "Kiran @ Silent\n[Driver / Transport]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "beta", title: "Bolero Pickup Driver", level: 4 },
+            { id: "beta_op3", label: "Naveen S.\n[Gas Tank Handler]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "beta", title: "LPG & Oxygen Cylinder Supplier", level: 4 },
+            { id: "beta_op4", label: "Anand K.\n[Scout]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "beta", title: "Daytime Commercial Hub Spotter", level: 4 },
+            { id: "beta_veh", label: "Mahindra Bolero\nKA-09-EQ-4412", size: 20, shape: "square", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "beta", title: "Loot & Cylinder Transport Vehicle", level: 3 },
+
+            // --- SYNDICATE GAMMA ("Jamtara-South" - Bengaluru/Mangaluru Cyber) ---
+            { id: "gamma_kingpin", label: "Syed Nabil\n[KINGPIN - INTERPOL POLICE]", size: 34, shape: "hexagon", color: { background: "#ffffff", border: "#ffffff" }, font: { color: "#ffffff", size: 14, bold: true }, group: "gamma", title: "Syndicate Gamma Leader // Cyber Phishing & Crypto Laundering Architect", level: 1 },
+            { id: "gamma_lt1", label: "Rohan Sharma\n[Tech Lead / APK Dev]", size: 24, shape: "diamond", color: { background: "#d4d4d8", border: "#71717a" }, font: { color: "#ffffff", size: 12 }, group: "gamma", title: "Developer of fake BESCOM electricity billing Trojan APKs", level: 2 },
+            { id: "gamma_lt2", label: "Farooq @ Crypto\n[Laundering Chief]", size: 24, shape: "diamond", color: { background: "#d4d4d8", border: "#71717a" }, font: { color: "#ffffff", size: 12 }, group: "gamma", title: "Crypto mixing and mule account distribution coordinator", level: 2 },
+            { id: "gamma_evid1", label: "Wallet 0x81B...c9\n[14 FIR LEDGER LINK]", size: 26, shape: "star", color: { background: "#ffffff", border: "#a1a1aa" }, font: { color: "#ffffff", size: 11, bold: true }, group: "gamma", title: "Primary Ethereum/USDT laundering wallet tagged across 14 police districts", level: 3 },
+            { id: "gamma_tool", label: "BESCOM Trojan APK\n[Phishing Vector]", size: 22, shape: "square", color: { background: "#a1a1aa", border: "#ffffff" }, font: { color: "#ffffff", size: 11 }, group: "gamma", title: "Malicious SMS phishing link harvesting bank credentials & OTPs", level: 3 },
+            { id: "gamma_ip", label: "IP Cluster\n185.220.101.0/24", size: 20, shape: "box", color: { background: "#18181b", border: "#71717a" }, font: { color: "#ffffff", size: 10 }, group: "gamma", title: "Offshore VPN / Proxy gateway used in Udupi & Mangaluru banking breaches", level: 3 },
+            { id: "gamma_mule1", label: "Mule Account #1092\n[SBI Mangaluru]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "gamma", title: "Layer 1 Mule // ₹18 Lakhs throughput", level: 4 },
+            { id: "gamma_mule2", label: "Mule Account #8812\n[HDFC Udupi]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "gamma", title: "Layer 1 Mule // ₹24 Lakhs throughput", level: 4 },
+            { id: "gamma_mule3", label: "Mule Account #3341\n[ICICI Bengaluru]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "gamma", title: "Layer 2 Mule // Wire to Crypto Exchange", level: 4 },
+            { id: "gamma_mule4", label: "Mule Account #9011\n[Axis Mysuru]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "gamma", title: "Layer 2 Mule // Cash Withdrawal node", level: 4 },
+            { id: "gamma_op1", label: "Deepak V.\n[SMS Blaster]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "gamma", title: "SIM-box operator blasting 50,000 phishing SMS daily", level: 4 },
+            { id: "gamma_op2", label: "Suhas R.\n[SIM Recruiter]", size: 16, shape: "dot", color: { background: "#71717a", border: "#3f3f46" }, font: { color: "#d4d4d8", size: 10 }, group: "gamma", title: "Recruits college students for SIM cards and bank KYC", level: 4 },
+
+            // --- CROSS-SYNDICATE BRIDGES & FINANCIERS (The "Super-Nodes") ---
+            { id: "bridge_hawala", label: "Haji Seth @ Hawala\n[STATE FINANCIER & BRIDGE]", size: 30, shape: "star", color: { background: "#ffffff", border: "#ffffff" }, font: { color: "#ffffff", size: 13, bold: true }, group: "bridge", title: "CRITICAL BRIDGE // Connects Highway Robbery cash proceeds (Alpha) to Crypto mixing (Gamma)", level: 2 },
+            { id: "bridge_shell", label: "Apex Trading Pvt Ltd\n[SHELL COMPANY FRONT]", size: 26, shape: "box", color: { background: "#27272a", border: "#ffffff" }, font: { color: "#ffffff", size: 11, bold: true }, group: "bridge", title: "Registered commercial front laundering funds for Syndicates Beta and Gamma", level: 3 },
+            { id: "bridge_arms", label: "Vikram @ Katta\n[INTERSTATE ARMS SUPPLIER]", size: 28, shape: "triangle", color: { background: "#ffffff", border: "#ef4444" }, font: { color: "#ffffff", size: 12, bold: true }, group: "bridge", title: "MP/MH border arms dealer supplying illegal firearms to Alpha and tools to Beta", level: 2 },
+            { id: "bridge_lawyer", label: "Adv. K. Sharma\n[SYNDICATE COUNSEL]", size: 22, shape: "diamond", color: { background: "#71717a", border: "#ffffff" }, font: { color: "#ffffff", size: 11 }, group: "bridge", title: "Legal defense coordinator appearing for operatives across all 3 syndicates", level: 3 },
+            { id: "bridge_hotel", label: "Highway Lodge #44\n[SAFEHOUSE HUB]", size: 20, shape: "box", color: { background: "#18181b", border: "#71717a" }, font: { color: "#ffffff", size: 10 }, group: "bridge", title: "Common meeting point near Hubballi highway intersection", level: 4 }
+        ];
+
+        const fallbackEdges = [
+            // Syndicate Alpha Internal
+            { from: "alpha_kingpin", to: "alpha_lt1", label: "Command (Daily)", width: 3, color: { color: "#ffffff" }, title: "Direct operational command via encrypted Signal calls" },
+            { from: "alpha_kingpin", to: "alpha_lt2", label: "Logistics Orders", width: 2.5, color: { color: "#d4d4d8" }, title: "Route planning & target selection instructions" },
+            { from: "alpha_lt1", to: "alpha_veh1", label: "Primary Vehicle", width: 2, color: { color: "#a1a1aa" }, title: "White Scorpio used in Belagavi & Dharwad hits" },
+            { from: "alpha_lt1", to: "alpha_evid1", label: "Ballistic Link", width: 3.5, color: { color: "#ef4444" }, title: "FSL 99.4% striation match to 7.65mm pistol seized from operative" },
+            { from: "alpha_lt2", to: "alpha_veh2", label: "Cargo Transport", width: 1.5, color: { color: "#71717a" }, title: "Eicher truck registered under fake KYC" },
+            { from: "alpha_lt1", to: "alpha_loc1", label: "Ambush Zone", width: 2, color: { color: "#a1a1aa" }, title: "Toll plaza checkpost CCTV captured vehicle 14 times" },
+            { from: "alpha_lt1", to: "alpha_op1", label: "Driver Assign", width: 1.5, color: { color: "#52525b" } },
+            { from: "alpha_lt1", to: "alpha_op2", label: "Spotter Feed", width: 1.5, color: { color: "#52525b" } },
+            { from: "alpha_lt2", to: "alpha_op3", label: "Arms Custody", width: 1.5, color: { color: "#52525b" } },
+            { from: "alpha_lt2", to: "alpha_op4", label: "Barricade Prep", width: 1.5, color: { color: "#52525b" } },
+            { from: "alpha_lt2", to: "alpha_op5", label: "Loot Transfer", width: 1.5, color: { color: "#52525b" } },
+            { from: "alpha_op5", to: "alpha_wh", label: "Stash House", width: 2, color: { color: "#71717a" } },
+            { from: "alpha_op3", to: "alpha_evid1", label: "Weapon Maint", width: 2, color: { color: "#ef4444" } },
+
+            // Syndicate Beta Internal
+            { from: "beta_kingpin", to: "beta_lt1", label: "Target Blueprint", width: 3, color: { color: "#ffffff" }, title: "Commercial vault reconnaissance briefs" },
+            { from: "beta_kingpin", to: "beta_lt2", label: "Cutter Squad", width: 3, color: { color: "#ffffff" }, title: "Supervises night vault breach operations" },
+            { from: "beta_kingpin", to: "beta_evid1", label: "AFIS Fingerprint", width: 4, color: { color: "#f97316" }, title: "Latent thumbprint recovered from Mysuru vault door matches Manja" },
+            { from: "beta_lt2", to: "beta_tool", label: "Rig Operator", width: 2.5, color: { color: "#a1a1aa" }, title: "Custom oxygen-LPG rig with noise suppressor" },
+            { from: "beta_lt1", to: "beta_loc1", label: "Recon Target", width: 2, color: { color: "#a1a1aa" } },
+            { from: "beta_tool", to: "beta_loc1", label: "Breach Tool", width: 2.5, color: { color: "#f97316" } },
+            { from: "beta_lt2", to: "beta_op1", label: "Alarm Wire", width: 1.5, color: { color: "#52525b" } },
+            { from: "beta_lt2", to: "beta_op2", label: "Getaway Vehicle", width: 1.5, color: { color: "#52525b" } },
+            { from: "beta_op2", to: "beta_veh", label: "Bolero Driver", width: 2, color: { color: "#71717a" } },
+            { from: "beta_lt2", to: "beta_op3", label: "Cylinder Supply", width: 1.5, color: { color: "#52525b" } },
+            { from: "beta_lt1", to: "beta_op4", label: "Daytime Spotter", width: 1.5, color: { color: "#52525b" } },
+
+            // Syndicate Gamma Internal
+            { from: "gamma_kingpin", to: "gamma_lt1", label: "Trojan Spec", width: 3, color: { color: "#ffffff" }, title: "Orders new BESCOM & RTO phishing APK builds" },
+            { from: "gamma_kingpin", to: "gamma_lt2", label: "Laundering Wire", width: 3, color: { color: "#ffffff" }, title: "Coordinates wire splits to decentralized mixers" },
+            { from: "gamma_lt1", to: "gamma_tool", label: "APK Deployment", width: 2.5, color: { color: "#a1a1aa" } },
+            { from: "gamma_tool", to: "gamma_ip", label: "C2 Server Host", width: 2, color: { color: "#71717a" }, title: "Phishing credentials routed through 185.220.101.0/24 proxy" },
+            { from: "gamma_lt2", to: "gamma_evid1", label: "Master Ledger", width: 4, color: { color: "#ffffff" }, title: "Wallet 0x81B...c9 receives 80% of phishing proceeds across 14 FIRs" },
+            { from: "gamma_lt2", to: "gamma_mule1", label: "Mule Wire 1", width: 1.5, color: { color: "#52525b" } },
+            { from: "gamma_lt2", to: "gamma_mule2", label: "Mule Wire 2", width: 1.5, color: { color: "#52525b" } },
+            { from: "gamma_mule1", to: "gamma_mule3", label: "Layer 2 Hop", width: 1.5, color: { color: "#3f3f46" } },
+            { from: "gamma_mule2", to: "gamma_mule4", label: "Layer 2 Hop", width: 1.5, color: { color: "#3f3f46" } },
+            { from: "gamma_mule3", to: "gamma_evid1", label: "Crypto Purchase", width: 2.5, color: { color: "#a1a1aa" } },
+            { from: "gamma_mule4", to: "gamma_evid1", label: "Crypto Purchase", width: 2.5, color: { color: "#a1a1aa" } },
+            { from: "gamma_lt1", to: "gamma_op1", label: "SIM Blaster", width: 1.5, color: { color: "#52525b" } },
+            { from: "gamma_op1", to: "gamma_op2", label: "SIM Supply", width: 1.5, color: { color: "#52525b" } },
+
+            // CROSS-SYNDICATE BRIDGES (The Peak Evidentiary Connections)
+            { from: "alpha_kingpin", to: "bridge_hawala", label: "Laundering Wire [₹85L]", width: 3.5, color: { color: "#ffffff" }, title: "HIGHWAY ROBBERY PROCEEDS: Cash transferred via Haji Seth hawala network" },
+            { from: "bridge_hawala", to: "gamma_evid1", label: "Crypto Conversion [USDT]", width: 4, color: { color: "#ffffff" }, title: "HAWALA TO CRYPTO BRIDGE: Haji Seth converts cash into USDT on Wallet 0x81B...c9" },
+            { from: "beta_kingpin", to: "bridge_shell", label: "Commercial Investment", width: 3, color: { color: "#d4d4d8" }, title: "BURGLARY PROCEEDS: Stolen gold melted and invested in Apex Trading Pvt Ltd" },
+            { from: "gamma_kingpin", to: "bridge_shell", label: "Director Proxy", width: 3, color: { color: "#d4d4d8" }, title: "CYBER PROCEEDS: Syed Nabil's wife listed as sleeping director in Apex Trading" },
+            { from: "bridge_arms", to: "alpha_op3", label: "Weapons Supply [7.65mm]", width: 3, color: { color: "#ef4444" }, title: "INTERSTATE ARMS VECTOR: 12 CZ-Mod pistols delivered near Belagavi border" },
+            { from: "bridge_arms", to: "beta_lt2", label: "Industrial Cutter Rig", width: 2.5, color: { color: "#f97316" }, title: "TOOL VECTOR: Heavy-duty cutting torch equipment supplied to Mysuru gang" },
+            { from: "alpha_kingpin", to: "bridge_lawyer", label: "Retainer Fee", width: 2, color: { color: "#71717a" } },
+            { from: "beta_kingpin", to: "bridge_lawyer", label: "Retainer Fee", width: 2, color: { color: "#71717a" } },
+            { from: "gamma_kingpin", to: "bridge_lawyer", label: "Retainer Fee", width: 2, color: { color: "#71717a" } },
+            { from: "alpha_lt1", to: "bridge_hotel", label: "Safehouse Meet", width: 1.5, color: { color: "#52525b" } },
+            { from: "beta_lt1", to: "bridge_hotel", label: "Safehouse Meet", width: 1.5, color: { color: "#52525b" } }
+        ];
+
+        // Initialize Graph Engine
+        function initGraph() {
+            const container = document.getElementById('mynetwork');
+            
+            nodes = new vis.DataSet(fallbackNodes);
+            edges = new vis.DataSet(fallbackEdges);
+
+            allNodesObj = nodes.get({ returnType: "Object" });
+            allEdgesObj = edges.get({ returnType: "Object" });
+
+            document.getElementById('stat-nodes').innerText = nodes.length;
+            document.getElementById('stat-edges').innerText = edges.length;
+
+            const data = { nodes: nodes, edges: edges };
+            
+            const options = {
+                nodes: {
+                    borderWidth: 2,
+                    borderWidthSelected: 4,
+                    shadow: {
+                        enabled: true,
+                        color: 'rgba(0,0,0,0.8)',
+                        size: 10,
+                        x: 2,
+                        y: 2
+                    }
+                },
+                edges: {
+                    width: 2,
+                    color: {
+                        color: '#3f3f46',
+                        highlight: '#ffffff',
+                        hover: '#a1a1aa'
+                    },
+                    smooth: {
+                        enabled: true,
+                        type: 'dynamic',
+                        roundness: 0.5
+                    },
+                    font: {
+                        color: '#a1a1aa',
+                        size: 10,
+                        face: 'monospace',
+                        background: '#09090b',
+                        strokeWidth: 0,
+                        align: 'middle'
+                    },
+                    arrows: {
+                        to: { enabled: true, scaleFactor: 0.5 }
+                    }
+                },
+                physics: {
+                    enabled: true,
+                    forceAtlas2Based: {
+                        gravitationalConstant: -70,
+                        centralGravity: 0.01,
+                        springLength: 120,
+                        springConstant: 0.08,
+                        damping: 0.4,
+                        avoidOverlap: 0.5
+                    },
+                    solver: 'forceAtlas2Based',
+                    stabilization: {
+                        enabled: true,
+                        iterations: 300,
+                        updateInterval: 20
+                    }
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 100,
+                    hideEdgesOnDrag: false,
+                    hideNodesOnDrag: false,
+                    navigationButtons: false,
+                    keyboard: true
+                },
+                layout: {
+                    hierarchical: {
+                        enabled: false
+                    }
+                }
+            };
+
+            network = new vis.Network(container, data, options);
+
+            // Loading bar progress
+            network.on("stabilizationProgress", function(params) {
+                const widthFactor = params.iterations / params.total;
+                document.getElementById('bar').style.width = Math.round(widthFactor * 100) + '%';
+                document.getElementById('text').innerHTML = Math.round(widthFactor * 100) + '%';
+            });
+
+            network.once("stabilizationIterationsDone", function() {
+                document.getElementById('text').innerHTML = '100% // ENGINE READY';
+                document.getElementById('bar').style.width = '100%';
+                setTimeout(() => {
+                    document.getElementById('loadingBar').style.opacity = 0;
+                    setTimeout(() => document.getElementById('loadingBar').style.display = 'none', 500);
+                }, 400);
+            });
+
+            // Node Selection Telemetry
+            network.on("click", function(params) {
+                if (params.nodes && params.nodes.length > 0) {
+                    selectedNodeId = params.nodes[0];
+                    const clickedNode = allNodesObj[selectedNodeId];
+                    showInspector('NODE', clickedNode.label, clickedNode.title, clickedNode.group);
+                    applyHopFilter(selectedNodeId, currentHop);
+                    
+                    if (window.parent) {
+                        window.parent.postMessage({
+                            type: 'NODE_SELECTED',
+                            id: selectedNodeId,
+                            label: clickedNode.label.replace(/\n/g, ' '),
+                            group: clickedNode.group,
+                            title: clickedNode.title
+                        }, '*');
+                    }
+                } else if (params.edges && params.edges.length > 0) {
+                    const clickedEdge = allEdgesObj[params.edges[0]];
+                    showInspector('EDGE', clickedEdge.label || 'Connected Vector', clickedEdge.title || 'Co-offending association established via police CDR/FIR records.', 'edge');
+                } else {
+                    selectedNodeId = null;
+                    document.getElementById('edge-inspector').style.display = 'none';
+                    if (currentHop !== 'all') applyHopFilter(null, currentHop);
+                }
+            });
+
+            network.on("hoverNode", function(params) {
+                const node = allNodesObj[params.node];
+                if (node) showInspector('NODE', node.label, node.title, node.group);
+            });
+
+            network.on("hoverEdge", function(params) {
+                const edge = allEdgesObj[params.edge];
+                if (edge) showInspector('EDGE', edge.label || 'Connected Vector', edge.title || 'Co-offending association established via police CDR/FIR records.', 'edge');
+            });
+        }
+
+        // Show Edge / Node Inspector Toast
+        function showInspector(type, title, desc, group) {
+            const toast = document.getElementById('edge-inspector');
+            const titleEl = document.getElementById('insp-title-text');
+            const descEl = document.getElementById('insp-desc-text');
+            const badgeEl = document.getElementById('insp-badge');
+
+            toast.style.display = 'block';
+            titleEl.innerText = title ? title.replace(/\n/g, ' - ') : 'EVIDENTIARY LINK';
+            descEl.innerHTML = desc || 'Confirmed telemetry link across Karnataka state police databases.';
+            
+            if (group === 'alpha') {
+                badgeEl.innerText = 'SYNDICATE ALPHA';
+                badgeEl.style.borderColor = '#ffffff';
+                toast.style.borderLeftColor = '#ffffff';
+            } else if (group === 'beta') {
+                badgeEl.innerText = 'SYNDICATE BETA';
+                badgeEl.style.borderColor = '#f97316';
+                toast.style.borderLeftColor = '#f97316';
+            } else if (group === 'gamma') {
+                badgeEl.innerText = 'SYNDICATE GAMMA';
+                badgeEl.style.borderColor = '#a1a1aa';
+                toast.style.borderLeftColor = '#a1a1aa';
+            } else if (group === 'bridge') {
+                badgeEl.innerText = 'SUPER BRIDGE';
+                badgeEl.style.borderColor = '#ffffff';
+                toast.style.borderLeftColor = '#ffffff';
+            } else {
+                badgeEl.innerText = type === 'EDGE' ? 'EVIDENCE LINK' : 'OPERATIVE';
+                badgeEl.style.borderColor = '#71717a';
+                toast.style.borderLeftColor = '#71717a';
+            }
+        }
+
+        // HUD Controls
+        function centerFit() {
+            if (network) network.fit({ animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
+        }
+
+        function togglePhysics() {
+            if (!network) return;
+            physicsActive = !physicsActive;
+            network.setOptions({ physics: { enabled: physicsActive } });
+            document.getElementById('phys-status').innerHTML = physicsActive ? 'ACTIVE' : '<span style="color: #a1a1aa;">FROZEN</span>';
+            document.getElementById('phys-btn').innerHTML = physicsActive ? '🕸️ Freeze Physics' : '⚡ Unfreeze Physics';
+        }
+
+        function isolateKingpins() {
+            if (!network) return;
+            const kingpins = fallbackNodes.filter(n => n.level === 1 || n.group === 'bridge').map(n => n.id);
+            network.selectNodes(kingpins);
+            network.fit({ nodes: kingpins, animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
+            showInspector('NODE', 'KINGPIN & BRIDGE ISOLATION', 'Isolated 3 Syndicate Leaders and 5 Cross-Syndicate Super-Bridges (Hawala, Shell Fronts, and Arms Dealers).', 'bridge');
+        }
+
+        function resetView() {
+            if (!network) return;
+            network.unselectAll();
+            selectedNodeId = null;
+            setHopFilter('all');
+            centerFit();
+            document.getElementById('edge-inspector').style.display = 'none';
+        }
+
+        // Layout Switching
+        function switchLayout(layoutType) {
+            if (!network) return;
+            currentLayout = layoutType;
+            document.querySelectorAll('#cyber-hud-right button[id^="layout-"]').forEach(b => b.classList.remove('active'));
+            
+            if (layoutType === 'organic') {
+                document.getElementById('layout-org').classList.add('active');
+                network.setOptions({
+                    layout: { hierarchical: { enabled: false } },
+                    physics: { enabled: true, solver: 'forceAtlas2Based' }
+                });
+                physicsActive = true;
+                document.getElementById('phys-status').innerHTML = 'ACTIVE';
+                document.getElementById('phys-btn').innerHTML = '🕸️ Freeze Physics';
+            } else if (layoutType === 'hierarchical') {
+                document.getElementById('layout-hier').classList.add('active');
+                network.setOptions({
+                    layout: {
+                        hierarchical: {
+                            enabled: true,
+                            direction: 'UD',
+                            sortMethod: 'directed',
+                            nodeSpacing: 160,
+                            levelSeparation: 140
+                        }
+                    },
+                    physics: { enabled: false }
+                });
+                physicsActive = false;
+                document.getElementById('phys-status').innerHTML = '<span style="color: #a1a1aa;">HIERARCHY</span>';
+                document.getElementById('phys-btn').innerHTML = '⚡ Unfreeze Physics';
+            } else if (layoutType === 'circular') {
+                document.getElementById('layout-circ').classList.add('active');
+                // Calculate circular positions
+                const count = fallbackNodes.length;
+                const radius = 450;
+                const newPositions = [];
+                fallbackNodes.forEach((node, i) => {
+                    const angle = (i / count) * 2 * Math.PI;
+                    nodes.update({ id: node.id, x: radius * Math.cos(angle), y: radius * Math.sin(angle) });
+                });
+                network.setOptions({
+                    layout: { hierarchical: { enabled: false } },
+                    physics: { enabled: false }
+                });
+                physicsActive = false;
+                document.getElementById('phys-status').innerHTML = '<span style="color: #a1a1aa;">RING</span>';
+                document.getElementById('phys-btn').innerHTML = '⚡ Unfreeze Physics';
+                centerFit();
+            }
+        }
+
+        // 1-Hop / 2-Hop / Bridge Isolation Filter
+        function setHopFilter(hops) {
+            currentHop = hops;
+            document.querySelectorAll('#cyber-hud-right button[id^="hop-"]').forEach(b => b.classList.remove('active'));
+            if (hops === 'all') document.getElementById('hop-all').classList.add('active');
+            else if (hops === 1) document.getElementById('hop-1').classList.add('active');
+            else if (hops === 2) document.getElementById('hop-2').classList.add('active');
+
+            document.getElementById('hop-status').innerText = hops === 'all' ? 'ALL NODES' : `${hops}-HOP VECTOR`;
+            applyHopFilter(selectedNodeId, hops);
+        }
+
+        function applyHopFilter(centerNodeId, hops) {
+            if (!nodes || !edges) return;
+            if (hops === 'all' || !centerNodeId) {
+                // Restore all nodes to normal opacity and colors
+                fallbackNodes.forEach(n => {
+                    nodes.update({
+                        id: n.id,
+                        color: n.color,
+                        font: n.font
+                    });
+                });
+                fallbackEdges.forEach(e => {
+                    edges.update({
+                        id: e.id,
+                        color: e.color,
+                        width: e.width
+                    });
+                });
+                return;
+            }
+
+            // Calculate connected neighborhood
+            let hop1Nodes = new Set([centerNodeId]);
+            let hop1Edges = new Set();
+            fallbackEdges.forEach(e => {
+                if (e.from === centerNodeId) { hop1Nodes.add(e.to); hop1Edges.add(e); }
+                if (e.to === centerNodeId) { hop1Nodes.add(e.from); hop1Edges.add(e); }
+            });
+
+            let activeNodes = new Set(hop1Nodes);
+            let activeEdges = new Set(hop1Edges);
+
+            if (hops === 2) {
+                hop1Nodes.forEach(n1 => {
+                    fallbackEdges.forEach(e => {
+                        if (e.from === n1) { activeNodes.add(e.to); activeEdges.add(e); }
+                        if (e.to === n1) { activeNodes.add(e.from); activeEdges.add(e); }
+                    });
+                });
+            }
+
+            // Apply visual dimming to non-active nodes/edges
+            fallbackNodes.forEach(n => {
+                if (activeNodes.has(n.id)) {
+                    nodes.update({ id: n.id, color: n.color, font: Object.assign({}, n.font, { color: '#ffffff' }) });
+                } else {
+                    nodes.update({ id: n.id, color: { background: '#18181b', border: '#27272a' }, font: Object.assign({}, n.font, { color: '#3f3f46' }) });
+                }
+            });
+
+            fallbackEdges.forEach(e => {
+                if (activeEdges.has(e)) {
+                    edges.update({ id: e.id, color: { color: '#ffffff' }, width: 2.5 });
+                } else {
+                    edges.update({ id: e.id, color: { color: '#18181b' }, width: 0.5 });
+                }
+            });
+        }
+
+        function highlightBridges() {
+            if (!network) return;
+            document.querySelectorAll('#cyber-hud-right button[id^="hop-"]').forEach(b => b.classList.remove('active'));
+            document.getElementById('hop-bridge').classList.add('active');
+            document.getElementById('hop-status').innerText = 'BRIDGES ISOLATED';
+
+            const bridgeNodes = fallbackNodes.filter(n => n.group === 'bridge').map(n => n.id);
+            const bridgeEdges = fallbackEdges.filter(e => bridgeNodes.includes(e.from) || bridgeNodes.includes(e.to));
+
+            fallbackNodes.forEach(n => {
+                if (bridgeNodes.includes(n.id) || bridgeEdges.some(e => e.from === n.id || e.to === n.id)) {
+                    nodes.update({ id: n.id, color: n.color, font: Object.assign({}, n.font, { color: '#ffffff' }) });
+                } else {
+                    nodes.update({ id: n.id, color: { background: '#18181b', border: '#27272a' }, font: Object.assign({}, n.font, { color: '#27272a' }) });
+                }
+            });
+
+            network.selectNodes(bridgeNodes);
+            network.fit({ nodes: bridgeNodes, animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
+            showInspector('NODE', 'CROSS-SYNDICATE FINANCIAL & ARMS BRIDGES', 'Highlighting Haji Seth (Hawala), Apex Trading (Shell Front), and Vikram (Arms Dealer) connecting independent syndicates.', 'bridge');
+        }
+
+        // Live Search Bar
+        function executeSearch() {
+            const query = (document.getElementById('search-box').value || '').toLowerCase().trim();
+            if (!query || !network) return;
+
+            const matchedNodes = fallbackNodes.filter(n => 
+                n.label.toLowerCase().includes(query) || 
+                (n.title && n.title.toLowerCase().includes(query)) ||
+                n.id.toLowerCase().includes(query)
+            ).map(n => n.id);
+
+            if (matchedNodes.length > 0) {
+                network.selectNodes(matchedNodes);
+                network.fit({ nodes: matchedNodes, animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
+                selectedNodeId = matchedNodes[0];
+                const node = allNodesObj[selectedNodeId];
+                showInspector('NODE', node.label, node.title, node.group);
+                if (currentHop !== 'all') applyHopFilter(selectedNodeId, currentHop);
+            } else {
+                showInspector('NODE', 'SEARCH RESULT', `No suspect, vehicle, or wallet matching "${query}" found in current state topology.`, 'edge');
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('search-box').value = '';
+            resetView();
+        }
+
+        document.getElementById('search-box').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') executeSearch();
+        });
+
+        // Listen for parent postMessages
+        window.addEventListener('message', function(event) {
+            if (!event.data || !network) return;
+            if (event.data.type === 'FOCUS_SYNDICATE') {
+                const query = (event.data.query || '').toLowerCase();
+                if (query === 'all') {
+                    resetView();
+                    return;
+                }
+                const targetNodes = fallbackNodes.filter(n => n.group === query || (query === 'bridge' && n.group === 'bridge')).map(n => n.id);
+                if (targetNodes.length > 0) {
+                    network.selectNodes(targetNodes);
+                    network.fit({ nodes: targetNodes, animation: { duration: 800, easingFunction: 'easeInOutQuad' } });
+                    showInspector('NODE', `SYNDICATE ${query.toUpperCase()} FILTER`, `Focused on ${targetNodes.length} nodes associated with Syndicate ${query.toUpperCase()}.`, query);
+                }
+            }
+        });
+
+        // Start
+        window.addEventListener('DOMContentLoaded', initGraph);
+    </script>
+</body>
+</html>

@@ -1,0 +1,789 @@
+/* ==========================================================================
+   KSP CATALYST // STRATEGIC INTELLIGENCE HUB // EXECUTIVE MONOCHROME
+   Aesthetics: Professional Monochrome (Black, White, Charcoal Slate)
+   Typography: Libre Franklin / Space Mono / JetBrains Mono
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Share+Tech+Mono&family=Libre+Franklin:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+    --bg-main: #000000;
+    --bg-surface: #09090b;
+    --bg-card: #121215;
+    --bg-hover: #18181b;
+    --border-subtle: #27272a;
+    --border-strong: #3f3f46;
+    --border-focus: #71717a;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --text-dark: #000000;
+    --accent-white: #ffffff;
+    --accent-gray: #e5e7eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libre Franklin', 'JetBrains Mono', 'Space Mono', 'Roboto Mono', monospace !important;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 280px;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    position: relative;
+}
+
+.logo {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.logo h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.logo h2 span {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.logo .sys-sub {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+nav ul li a .icon {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+nav ul li a:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border-color: var(--border-subtle);
+}
+
+nav ul li.active a {
+    background: var(--accent-white);
+    color: var(--text-dark);
+    font-weight: 700;
+    border-color: var(--accent-white);
+}
+
+nav ul li.active a .icon {
+    opacity: 1;
+}
+
+/* Tactical Status Box */
+.status-box {
+    margin-top: auto;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-box p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.status-box strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.pulse-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-primary);
+    border-radius: 50%;
+    opacity: 0.9;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 2.5rem 3rem;
+    overflow-y: auto;
+    background: var(--bg-main);
+}
+
+header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1.25rem;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+}
+
+header p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Professional Cards & Panels */
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    border-color: var(--border-strong);
+}
+
+.card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+}
+
+.card-header h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.badge {
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--border-subtle);
+    text-transform: uppercase;
+}
+
+/* Professional Alert Banner */
+.alert-banner {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--text-primary);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: var(--bg-surface);
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.filter-select {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    padding: 0.65rem 0.9rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.filter-select:focus, .filter-select:hover {
+    border-color: var(--text-secondary);
+    background: var(--bg-hover);
+}
+
+/* Monochrome KPI Grid */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 1.5rem;
+    border-radius: 6px;
+    transition: border-color 0.2s ease;
+}
+
+.kpi-box:hover {
+    border-color: var(--border-strong);
+}
+
+.kpi-box h4 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-box .val {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+/* MO & Dossier Grid */
+.mo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+.mo-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    transition: border-color 0.2s ease;
+}
+
+.mo-card:hover {
+    border-color: var(--border-strong);
+}
+
+.mo-card .status-tag {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+}
+
+.mo-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.mo-card .meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.mo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.2rem;
+}
+
+.mo-tag {
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.3rem 0.65rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+}
+
+/* Socio-Economic Grid */
+.socio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.socio-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.socio-card h4 {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+}
+
+.socio-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.corr-meter {
+    height: 4px;
+    background: var(--border-subtle);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: auto;
+}
+
+.corr-fill {
+    height: 100%;
+    background: var(--text-primary);
+    border-radius: 2px;
+}
+
+/* Clean Professional Buttons */
+.glow-button {
+    background: var(--text-primary) !important;
+    color: var(--text-dark) !important;
+    font-weight: 700 !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    transition: opacity 0.2s ease !important;
+}
+
+.glow-button:hover {
+    opacity: 0.85 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tab-content {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* ----------------------------------------------------
+   TAB 2: INTERACTIVE NETWORK & TELEMETRY STYLES
+---------------------------------------------------- */
+.net-filter-btn {
+    padding: 0.4rem 0.85rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #09090b !important;
+    color: #a1a1aa !important;
+    border: 1px solid #3f3f46 !important;
+}
+
+.net-filter-btn:hover, .net-filter-btn.active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+.scrb-alert-box:hover {
+    border-color: #ffffff !important;
+    background: #121215 !important;
+    transform: translateX(4px);
+}
+
+.executive-dossier:hover {
+    border-color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+.dossier-action-btn:hover {
+    background: #d4d4d8 !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   BRUTAL EXECUTIVE & TACTICAL INTELLIGENCE STYLES (ZIA ENGINE 4.0)
+   ========================================================================== */
+
+/* 1. Red-Zone Pulsing Alert Banner & Animations */
+@keyframes redZonePulse {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); border-color: rgba(239, 68, 68, 0.8); }
+    70% { box-shadow: 0 0 0 14px rgba(239, 68, 68, 0); border-color: rgba(239, 68, 68, 0.3); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); border-color: rgba(239, 68, 68, 0.8); }
+}
+
+@keyframes tacticalBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.alert-banner.red-zone-active {
+    background: linear-gradient(90deg, #180505 0%, #09090b 100%);
+    border: 1px solid #ef4444;
+    border-left: 6px solid #ef4444;
+    animation: redZonePulse 2s infinite;
+}
+
+.alert-pill {
+    background: #18181b;
+    color: #ffffff;
+    border: 1px solid #3f3f46;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert-pill:hover, .alert-pill.active {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.alert-pill.critical {
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.alert-pill.critical:hover, .alert-pill.critical.active {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+/* 2. Brutalist Data Tables (District Drill-Down & MO Matrix) */
+.brutal-table-container {
+    background: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+}
+
+.brutal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    color: #d4d4d8;
+}
+
+.brutal-table th {
+    background: #121215;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid #3f3f46;
+}
+
+.brutal-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #18181b;
+    line-height: 1.4;
+}
+
+.brutal-table tr:hover td {
+    background: #18181b;
+    color: #ffffff;
+}
+
+.brutal-table tr.row-critical td {
+    border-left: 3px solid #ef4444;
+    background: rgba(239, 68, 68, 0.04);
+}
+
+.brutal-table tr.row-high td {
+    border-left: 3px solid #f97316;
+}
+
+/* 3. Spatiotemporal 24x7 Heat Grid Matrix */
+.heat-grid-matrix {
+    display: grid;
+    grid-template-columns: 80px repeat(6, 1fr);
+    gap: 4px;
+    margin-top: 1rem;
+    background: #000000;
+    padding: 1rem;
+    border: 1px solid #27272a;
+    border-radius: 6px;
+}
+
+.heat-grid-header {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #a1a1aa;
+    text-align: center;
+    padding: 0.5rem;
+    background: #09090b;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.heat-grid-row-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    background: #09090b;
+    border-radius: 3px;
+}
+
+.heat-grid-cell {
+    background: #09090b;
+    border: 1px solid #18181b;
+    border-radius: 3px;
+    padding: 0.65rem 0.4rem;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #d4d4d8;
+}
+
+.heat-grid-cell:hover {
+    transform: scale(1.05);
+    border-color: #ffffff;
+    z-index: 2;
+    box-shadow: 0 0 12px rgba(255,255,255,0.2);
+}
+
+.heat-cell-low { background: #121215; color: #a1a1aa; }
+.heat-cell-med { background: #1e1e24; color: #ffffff; border-color: #3f3f46; }
+.heat-cell-high { background: #312e81; color: #ffffff; border-color: #6366f1; }
+.heat-cell-crit { background: #7f1d1d; color: #ffffff; border-color: #ef4444; animation: tacticalBlink 3s infinite; }
+
+/* 4. Interactive Socio-Economic Correlation Toggles & Meters */
+.socio-toggle-btn {
+    background: #09090b;
+    color: #a1a1aa;
+    border: 1px solid #3f3f46;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.socio-toggle-btn:hover, .socio-toggle-btn.active {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.corr-val-display {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    background: #121215;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #27272a;
+}
+
+/* 5. CCTNS NLP Entity Extraction Badges */
+.nlp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin: 0.25rem;
+    border: 1px solid;
+}
+
+.nlp-person { background: rgba(99, 102, 241, 0.15); border-color: #6366f1; color: #818cf8; }
+.nlp-vehicle { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #f87171; }
+.nlp-weapon { background: rgba(249, 115, 22, 0.15); border-color: #f97316; color: #fb923c; }
+.nlp-location { background: rgba(16, 185, 129, 0.15); border-color: #10b981; color: #34d399; }
+.nlp-syndicate { background: rgba(255, 255, 255, 0.15); border-color: #ffffff; color: #ffffff; }
+
+/* 6. Predictive Risk Scoring Heat Bars */
+.risk-forecast-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.risk-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.risk-bar-label {
+    width: 140px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a1a1aa;
+    text-transform: uppercase;
+}
+
+.risk-bar-track {
+    flex: 1;
+    height: 12px;
+    background: #121215;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #27272a;
+    position: relative;
+}
+
+.risk-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.risk-bar-value {
+    width: 60px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: right;
+}
+

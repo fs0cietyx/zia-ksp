@@ -1,0 +1,24 @@
+# Catalyst & OS Files
+.catalyst/
+.DS_Store
+*.log
+server.log
+catalyst-function-input.txt
+
+# Python Dependencies
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+v/
+venv/
+ENV/
+env/
+.venv/
+.python_packages/
+
+# Node / JS
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

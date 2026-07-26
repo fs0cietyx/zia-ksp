@@ -1,0 +1,2002 @@
+[
+    {
+        "latitude": 15.6718,
+        "longitude": 77.5902,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ASSAULT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.8456,
+        "longitude": 76.2976,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.6202,
+        "longitude": 76.5686,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.2292,
+        "longitude": 75.5957,
+        "Gravity": "Heinous",
+        "Category": "UDR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.758,
+        "longitude": 76.2755,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.4665,
+        "longitude": 75.8407,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.1289,
+        "longitude": 75.9353,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 17.7664,
+        "longitude": 76.8033,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "COMMUNAL / RELIGION   ",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 12.8539,
+        "longitude": 77.0997,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.5613,
+        "longitude": 75.2492,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.6175,
+        "longitude": 74.4605,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.2386,
+        "longitude": 74.8562,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.7069,
+        "longitude": 76.4526,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 13.8006,
+        "longitude": 77.7544,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": " CYBER CRIME",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 12.3774,
+        "longitude": 75.6135,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 14.704,
+        "longitude": 75.2512,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.048,
+        "longitude": 75.9126,
+        "Gravity": "Heinous",
+        "Category": "PAR",
+        "CrimeHead": "WRONGFUL RESTRAINT/CONFINEMENT",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.0993,
+        "longitude": 75.8502,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.1786,
+        "longitude": 76.9176,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.934,
+        "longitude": 75.8846,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1345,
+        "longitude": 75.8814,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.1528,
+        "longitude": 75.7312,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.9383,
+        "longitude": 75.9162,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.0824,
+        "longitude": 75.9075,
+        "Gravity": "Heinous",
+        "Category": "PAR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.9775,
+        "longitude": 75.9115,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "OFFENCES AGAINST PUBLIC SERVANTS (Public servant is a victim)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.0772,
+        "longitude": 75.9187,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.9433,
+        "longitude": 75.9405,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.0989,
+        "longitude": 75.9827,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.1883,
+        "longitude": 76.3771,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "WRONGFUL RESTRAINT/CONFINEMENT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.0592,
+        "longitude": 75.9395,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 17.5322,
+        "longitude": 76.3765,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.9917,
+        "longitude": 75.9453,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": " CYBER CRIME",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.042,
+        "longitude": 75.9403,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "COMMUNAL / RELIGION   ",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.1316,
+        "longitude": 75.9433,
+        "Gravity": "Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "UNNATURAL SEX ",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 13.7635,
+        "longitude": 76.864,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.064,
+        "longitude": 77.9334,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 14.7558,
+        "longitude": 74.9973,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.3227,
+        "longitude": 75.3269,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.4231,
+        "longitude": 74.9691,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.4932,
+        "longitude": 76.5181,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.487,
+        "longitude": 76.6939,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 13.2051,
+        "longitude": 75.069,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ADULTERATION",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 13.0045,
+        "longitude": 77.4716,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CRUELTY BY HUSBAND",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.7044,
+        "longitude": 75.315,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.0568,
+        "longitude": 76.4357,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Karnataka State Local Act",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 12.915,
+        "longitude": 75.0241,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.8183,
+        "longitude": 76.4843,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.4813,
+        "longitude": 75.2652,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.0384,
+        "longitude": 76.3971,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 17.3387,
+        "longitude": 76.5644,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.3573,
+        "longitude": 75.7744,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 13.8354,
+        "longitude": 76.1076,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.9918,
+        "longitude": 75.6606,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.9214,
+        "longitude": 75.6788,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.89,
+        "longitude": 75.7046,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.9177,
+        "longitude": 75.6757,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.4677,
+        "longitude": 75.4827,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.8487,
+        "longitude": 75.7562,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.8984,
+        "longitude": 75.4507,
+        "Gravity": "Heinous",
+        "Category": "UDR",
+        "CrimeHead": "ADULTERATION",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.0246,
+        "longitude": 75.8363,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.8767,
+        "longitude": 75.7219,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.9775,
+        "longitude": 75.6964,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.9019,
+        "longitude": 75.5135,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC NUISANCE",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.9427,
+        "longitude": 75.7776,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.8605,
+        "longitude": 77.325,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.9079,
+        "longitude": 75.5005,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "OF ABETMENT",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.8753,
+        "longitude": 75.7218,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 12.5485,
+        "longitude": 77.2387,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 14.9429,
+        "longitude": 75.1293,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 14.8245,
+        "longitude": 74.576,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.891,
+        "longitude": 75.6013,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 14.4897,
+        "longitude": 76.65,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "SCHEDULED CASTE AND THE SCHEDULED TRIBES ",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.9493,
+        "longitude": 75.7475,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.9147,
+        "longitude": 75.4797,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.8448,
+        "longitude": 75.7579,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.9462,
+        "longitude": 75.7531,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 17.156,
+        "longitude": 76.7611,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "POCSO",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.4887,
+        "longitude": 76.8716,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.171,
+        "longitude": 75.653,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "NEGLIGENT ACT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 13.7901,
+        "longitude": 77.3882,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "POCSO",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.8968,
+        "longitude": 75.0945,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "POCSO",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 13.6981,
+        "longitude": 77.5125,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "POCSO",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.3566,
+        "longitude": 74.4685,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 17.3368,
+        "longitude": 76.2376,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.3723,
+        "longitude": 76.7395,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 14.3874,
+        "longitude": 77.7413,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.178,
+        "longitude": 75.4088,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.1915,
+        "longitude": 77.4518,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.5843,
+        "longitude": 77.7419,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CRIMINAL MISAPPROPRIATION ",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.9263,
+        "longitude": 74.4738,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "UNNATURAL SEX ",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 11.811,
+        "longitude": 76.299,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 12.6349,
+        "longitude": 77.3846,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.0097,
+        "longitude": 76.7233,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.2865,
+        "longitude": 77.1606,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.7669,
+        "longitude": 76.9525,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "PUBLIC NUISANCE",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.2065,
+        "longitude": 75.6121,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.0847,
+        "longitude": 78.0956,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.6184,
+        "longitude": 76.7736,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.9765,
+        "longitude": 77.1932,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.2475,
+        "longitude": 77.3327,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 13.1885,
+        "longitude": 77.4015,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.325,
+        "longitude": 74.7612,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 13.8375,
+        "longitude": 75.2576,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 13.4201,
+        "longitude": 75.0594,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.283,
+        "longitude": 75.9295,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.2381,
+        "longitude": 75.8305,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.098,
+        "longitude": 75.7821,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1529,
+        "longitude": 75.7393,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.2299,
+        "longitude": 75.9556,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.3176,
+        "longitude": 75.8898,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 13.8382,
+        "longitude": 77.0097,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.2079,
+        "longitude": 75.892,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.0518,
+        "longitude": 76.7839,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.15,
+        "longitude": 75.6865,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.2619,
+        "longitude": 75.6269,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 14.8073,
+        "longitude": 77.3011,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.7935,
+        "longitude": 77.4507,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.2947,
+        "longitude": 77.2015,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.2361,
+        "longitude": 75.8283,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1017,
+        "longitude": 75.7818,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.3021,
+        "longitude": 75.8902,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ADULTERATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 14.0738,
+        "longitude": 75.952,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.6811,
+        "longitude": 77.7386,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 13.8625,
+        "longitude": 77.9658,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 14.0211,
+        "longitude": 75.7423,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 12.2113,
+        "longitude": 77.5239,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 14.2403,
+        "longitude": 77.4764,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "MISSING PERSON",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.4039,
+        "longitude": 75.9215,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC NUISANCE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.4915,
+        "longitude": 77.359,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "Attempting to commit offences",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.2675,
+        "longitude": 75.874,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC NUISANCE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.806,
+        "longitude": 77.9707,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 14.6922,
+        "longitude": 76.1345,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.9628,
+        "longitude": 76.3323,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ADULTERATION",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1534,
+        "longitude": 75.7622,
+        "Gravity": "Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.1506,
+        "longitude": 75.7427,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.6619,
+        "longitude": 76.5306,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1725,
+        "longitude": 75.6557,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "MISSING PERSON",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1725,
+        "longitude": 75.6557,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "FORGERY",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1725,
+        "longitude": 75.6557,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.5144,
+        "longitude": 78.0883,
+        "Gravity": "Heinous",
+        "Category": "UDR",
+        "CrimeHead": "SCHEDULED CASTE AND THE SCHEDULED TRIBES ",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.1725,
+        "longitude": 75.6557,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1725,
+        "longitude": 75.6557,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.1725,
+        "longitude": 75.6557,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "NEGLIGENT ACT",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.1725,
+        "longitude": 75.6557,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "NEGLIGENT ACT",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1725,
+        "longitude": 75.6557,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "COPY RIGHT ACT 1957",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1807,
+        "longitude": 75.7015,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.1822,
+        "longitude": 75.6969,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "NEGLIGENT ACT",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.2762,
+        "longitude": 77.5591,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.9088,
+        "longitude": 76.2071,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "EXPLOSIVES",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 12.9569,
+        "longitude": 76.4422,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1786,
+        "longitude": 75.6813,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CASES OF HURT",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.5797,
+        "longitude": 76.5797,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "EXPLOSIVES",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.636,
+        "longitude": 76.4428,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "EXPLOSIVES",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 11.9239,
+        "longitude": 77.0067,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC NUISANCE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 17.4203,
+        "longitude": 76.9527,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "EXPLOSIVES",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 15.5283,
+        "longitude": 75.1354,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "SCHEDULED CASTE AND THE SCHEDULED TRIBES ",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1844,
+        "longitude": 75.7019,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1843,
+        "longitude": 75.7035,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1812,
+        "longitude": 75.1557,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "PUBLIC NUISANCE",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.043,
+        "longitude": 75.471,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.1544,
+        "longitude": 75.1725,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.9937,
+        "longitude": 75.4637,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 17.2332,
+        "longitude": 76.4413,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.8298,
+        "longitude": 76.0874,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.8544,
+        "longitude": 75.5082,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1732,
+        "longitude": 75.6827,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1872,
+        "longitude": 75.7036,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.5868,
+        "longitude": 77.7199,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.1669,
+        "longitude": 75.6471,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 12.2686,
+        "longitude": 76.2638,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.4237,
+        "longitude": 74.6481,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.1691,
+        "longitude": 75.6587,
+        "Gravity": "Heinous",
+        "Category": "PAR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.4781,
+        "longitude": 77.9854,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1545,
+        "longitude": 75.6698,
+        "Gravity": "Heinous",
+        "Category": "UDR",
+        "CrimeHead": "EXPOSURE AND ABANDONMENT OF CHILD",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.0543,
+        "longitude": 76.0604,
+        "Gravity": "Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "EXPOSURE AND ABANDONMENT OF CHILD",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.1811,
+        "longitude": 75.6573,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 14.3206,
+        "longitude": 78.3656,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "EXPOSURE AND ABANDONMENT OF CHILD",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.1754,
+        "longitude": 75.6549,
+        "Gravity": "Non-Heinous",
+        "Category": "UDR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.6672,
+        "longitude": 75.9645,
+        "Gravity": "Heinous",
+        "Category": "UDR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.516,
+        "longitude": 76.5395,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.873,
+        "longitude": 75.9895,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.8754,
+        "longitude": 75.8462,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 15.6832,
+        "longitude": 76.3302,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 13.2703,
+        "longitude": 75.5152,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.2748,
+        "longitude": 75.7237,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 15.373,
+        "longitude": 76.0961,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 12.0446,
+        "longitude": 76.8877,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.4107,
+        "longitude": 74.7406,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.7846,
+        "longitude": 76.0346,
+        "Gravity": "Heinous",
+        "Category": "UDR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.466,
+        "longitude": 75.1784,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.4802,
+        "longitude": 75.1301,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.4598,
+        "longitude": 75.1067,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.4963,
+        "longitude": 75.1213,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 14.5404,
+        "longitude": 75.7511,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "POCSO",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 17.2581,
+        "longitude": 75.4037,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.413,
+        "longitude": 75.1585,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.5256,
+        "longitude": 75.1653,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CASES OF HURT",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.4847,
+        "longitude": 75.1359,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.0955,
+        "longitude": 76.1736,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 17.7064,
+        "longitude": 76.6332,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "SCHEDULED CASTE AND THE SCHEDULED TRIBES ",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 17.2996,
+        "longitude": 76.1062,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 12.6655,
+        "longitude": 77.6271,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.4652,
+        "longitude": 75.1302,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "MISSING PERSON",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.3201,
+        "longitude": 75.0048,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.4874,
+        "longitude": 75.1347,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.4658,
+        "longitude": 75.1111,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "RIOTS",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.5249,
+        "longitude": 75.1641,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.8553,
+        "longitude": 77.2519,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.659,
+        "longitude": 76.3556,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "MOTOR VEHICLE ACCIDENTS FATAL",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.7506,
+        "longitude": 74.7179,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC NUISANCE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.9554,
+        "longitude": 76.0629,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 14.4791,
+        "longitude": 75.7934,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "MISCHIEF",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 17.2175,
+        "longitude": 76.5203,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 13.2371,
+        "longitude": 77.4096,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ANTIQUES (CULTURAL PROPERTY)",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 14.796,
+        "longitude": 77.606,
+        "Gravity": "Heinous",
+        "Category": "UDR",
+        "CrimeHead": "WRONGFUL RESTRAINT/CONFINEMENT",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 17.5995,
+        "longitude": 76.9758,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 17.02,
+        "longitude": 77.0116,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 12.6889,
+        "longitude": 75.2536,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.3563,
+        "longitude": 75.953,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 13.562,
+        "longitude": 75.5891,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 17.2173,
+        "longitude": 76.7252,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.9115,
+        "longitude": 75.1806,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.0576,
+        "longitude": 78.1076,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DACOITY",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.2476,
+        "longitude": 74.8901,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 14.4161,
+        "longitude": 75.6673,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 12.8449,
+        "longitude": 77.0269,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.422,
+        "longitude": 75.4368,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.2419,
+        "longitude": 75.4903,
+        "Gravity": "Non-Heinous",
+        "Category": "PAR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.4518,
+        "longitude": 75.6922,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.3646,
+        "longitude": 75.6694,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.4221,
+        "longitude": 75.4372,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.3365,
+        "longitude": 75.6433,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 13.1205,
+        "longitude": 75.6819,
+        "Gravity": "Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "PUBLIC JUSTICE",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 15.2888,
+        "longitude": 77.1081,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": " CYBER CRIME",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.3472,
+        "longitude": 75.6249,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 16.3747,
+        "longitude": 75.6513,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.2961,
+        "longitude": 75.6246,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "BURGLARY - NIGHT",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.2409,
+        "longitude": 75.5144,
+        "Gravity": "Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ADULTERATION",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 12.8948,
+        "longitude": 75.3381,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "FORGERY",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.4468,
+        "longitude": 75.4267,
+        "Gravity": "Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "DEFAMATION",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.6519,
+        "longitude": 76.8514,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.3091,
+        "longitude": 74.6484,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.296,
+        "longitude": 75.4278,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "ATTEMPT TO CULPABLE HOMICIDE NOT AMOUNTING TO MURDER",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 13.2582,
+        "longitude": 77.5952,
+        "Gravity": "Non-Heinous",
+        "Category": "Zero FIR",
+        "CrimeHead": "ASSAULT OR USE OF CRIMINAL FORCE TO DISROBE WOMAN",
+        "TimeBucket": "EVENING"
+    },
+    {
+        "latitude": 16.3136,
+        "longitude": 76.5455,
+        "Gravity": "Heinous",
+        "Category": "UDR",
+        "CrimeHead": "WRONGFUL RESTRAINT/CONFINEMENT",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 13.6182,
+        "longitude": 77.2148,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "Concealment of birth by secret disposal of Child",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 14.1567,
+        "longitude": 78.2561,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "SCHEDULED CASTE AND THE SCHEDULED TRIBES ",
+        "TimeBucket": "DAY"
+    },
+    {
+        "latitude": 11.8697,
+        "longitude": 76.1058,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "SCHEDULED CASTE AND THE SCHEDULED TRIBES ",
+        "TimeBucket": "MORNING"
+    },
+    {
+        "latitude": 16.6704,
+        "longitude": 77.1528,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "FORGERY",
+        "TimeBucket": "NIGHT"
+    },
+    {
+        "latitude": 16.3266,
+        "longitude": 75.2366,
+        "Gravity": "Non-Heinous",
+        "Category": "FIR",
+        "CrimeHead": "AFFRAY",
+        "TimeBucket": "DAY"
+    }
+]
