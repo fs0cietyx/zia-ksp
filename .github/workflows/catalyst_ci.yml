@@ -24,7 +24,7 @@ jobs:
       - name: 📦 Install Serverless & ML Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 pytest pytest-cov
+          pip install flake8 pytest pytest-cov pandas numpy scikit-learn
           if [ -f functions/ksp_intelligence_api/requirements.txt ]; then
             pip install -r functions/ksp_intelligence_api/requirements.txt
           fi
