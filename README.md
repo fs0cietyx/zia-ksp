@@ -82,7 +82,7 @@ By executing real-time **Scikit-Learn** machine learning inference on macro-soci
 * **High-Frequency Canvas Rendering**: Processes and renders **9,935+ simultaneous First Information Report (FIR) coordinates** across Karnataka at a sustained 60 frames per second (`< 16ms` frame time) without DOM degradation or UI latency.
 * **Zero Coagulation Diffusion Algorithm**: Implements an expanded Gaussian diffusion matrix (`radius: 70px`, `blur: 62px`) coupled with dynamic alpha scaling (`0.05`) to eliminate hard-edged dot clustering and produce continuous atmospheric density gradients.
 * **Authentic Doppler Spectral Progression**: Individual crime data points organically coalesce into fluid atmospheric storm fronts following standardized meteorological intensity scales:
-  $$\text{Navy (\#0033ff)} \rightarrow \text{Sky Cyan (\#00d4ff)} \rightarrow \text{Radar Green (\#00ff44)} \rightarrow \text{Severe Yellow (\#ffff00)} \rightarrow \text{Alert Orange (\#ff6600)} \rightarrow \text{Crimson Epicenter (\#ff0044)}$$
+  **Navy (Hex 0033FF)** -> **Sky Cyan (Hex 00D4FF)** -> **Radar Green (Hex 00FF44)** -> **Severe Yellow (Hex FFFF00)** -> **Alert Orange (Hex FF6600)** -> **Crimson Epicenter (Hex FF0044)**
 
 ### 4.2 54-Node Syndicate Relational Graphing & Super-Bridge Isolation
 * **ForceAtlas2 Network Topology**: Employs force-directed algorithmic layout models to map complex 1-hop and 2-hop criminal hierarchies, isolating operational leaders, field operatives, and financial intermediaries.
