@@ -10,7 +10,7 @@
 
 ---
 
-## SECTION 1.0 // SYSTEM IDENTIFICATION & PACKAGE METADATA
+## SYSTEM IDENTIFICATION & PACKAGE METADATA
 
 | Specification Parameter | Authoritative Designation |
 | :--- | :--- |
@@ -23,7 +23,7 @@
 
 ---
 
-## SECTION 2.0 // EXECUTIVE SUMMARY & OPERATIONAL SYNOPSIS
+## EXECUTIVE SUMMARY & OPERATIONAL SYNOPSIS
 
 ```bash
 zia-ksp-catalyst --execute [serve | deploy | predict | syndicate-map] --jurisdiction [ALL | BENGALURU | MYSURU | BELAGAVI]
@@ -35,7 +35,7 @@ By executing real-time **Scikit-Learn** machine learning inference on macro-soci
 
 ---
 
-## SECTION 3.0 // SYSTEM PROTOTYPE SNAPSHOTS & TACTICAL EVALUATION
+## SYSTEM PROTOTYPE SNAPSHOTS & TACTICAL EVALUATION
 
 ### 3.1 Statewide Doppler Weather-Radar Thermal Field & Active Pulse Markers
 <div align="center">
@@ -63,7 +63,7 @@ By executing real-time **Scikit-Learn** machine learning inference on macro-soci
 
 ---
 
-## SECTION 4.0 // CORE CAPABILITIES & FUNCTIONAL SPECIFICATIONS
+## CORE CAPABILITIES & FUNCTIONAL SPECIFICATIONS
 
 ### 4.1 Meteorological Doppler Weather-Radar Thermal Engine
 * **High-Frequency Canvas Rendering**: Processes and renders **9,935+ simultaneous First Information Report (FIR) coordinates** across Karnataka at a sustained 60 frames per second (`< 16ms` frame time) without DOM degradation or UI latency.
@@ -89,7 +89,7 @@ By executing real-time **Scikit-Learn** machine learning inference on macro-soci
 
 ---
 
-## SECTION 5.0 // TECHNICAL ARCHITECTURE & SYSTEM DEPENDENCIES
+## TECHNICAL ARCHITECTURE & SYSTEM DEPENDENCIES
 
 ### 5.1 Frontend Presentation Layer (Client Package)
 * **Language Specification**: ECMAScript 2021 (ES6+ Strict Mode), HTML5 Semantic Markup, Vanilla CSS3 (Custom Brutalist Tactical Dark-Mode Design System).
@@ -134,7 +134,7 @@ zia-ksp/
 
 ---
 
-## SECTION 6.0 // DEPLOYMENT PROTOCOLS & LOCAL SANDBOX INITIATION
+## DEPLOYMENT PROTOCOLS & LOCAL SANDBOX INITIATION
 
 ### 6.1 Prerequisites & Toolchain Verification
 Prior to compiling and initializing `zia-ksp-catalyst` in a local development environment, verify that the workstation conforms to the following system requirements:
@@ -188,7 +188,7 @@ Prior to compiling and initializing `zia-ksp-catalyst` in a local development en
 
 ---
 
-## SECTION 7.0 // ENVIRONMENT CONFIGURATION & SECURITY VARIABLES
+## ENVIRONMENT CONFIGURATION & SECURITY VARIABLES
 
 When deploying across staging and production environments, configure the following parameters in the Catalyst cloud console or `.env` manifests:
 
@@ -202,7 +202,7 @@ When deploying across staging and production environments, configure the followi
 
 ---
 
-## SECTION 8.0 // OPERATIONAL COMMAND REFERENCE (CLI TOOLCHAIN)
+## OPERATIONAL COMMAND REFERENCE (CLI TOOLCHAIN)
 
 The following standardized operational commands are available via the Zoho Catalyst toolchain:
 
@@ -217,7 +217,7 @@ The following standardized operational commands are available via the Zoho Catal
 
 ---
 
-## SECTION 9.0 // COMPLIANCE, TESTING & PERFORMANCE BENCHMARKING
+## COMPLIANCE, TESTING & PERFORMANCE BENCHMARKING
 
 ### 9.1 Automated Backend Unit Test Harness
 The codebase includes an automated unit test suite (`tests/test_ksp_api.py`) verifying dataset ingestion, spatial coordinate bounds, and Scikit-Learn inference. Execute tests locally using PyTest or Python's native test runner:
@@ -243,7 +243,7 @@ When audited under standard browser performance profiling tools (Chrome DevTools
 
 ---
 
-## SECTION 10.0 // PRODUCTION CLOUD SCALE & ZOHO CATALYST DEPLOYMENT
+## PRODUCTION CLOUD SCALE & ZOHO CATALYST DEPLOYMENT
 
 To execute a production release rollout across Zoho's global edge serverless infrastructure:
 
@@ -264,7 +264,7 @@ To execute a production release rollout across Zoho's global edge serverless inf
 
 ---
 
-## SECTION 11.0 // DIAGNOSTIC RUNBOOK & TROUBLESHOOTING PROCEDURES
+## DIAGNOSTIC RUNBOOK & TROUBLESHOOTING PROCEDURES
 
 ### 11.1 Error Code: `CORS Policy Exception / Failed to Fetch`
 * **Symptom**: Geospatial map loads with a blank background; browser console records `Cross-Origin Request Blocked`.
@@ -288,7 +288,7 @@ To execute a production release rollout across Zoho's global edge serverless inf
 
 ---
 
-## SECTION 12.0 // SECURITY GOVERNANCE, CJIS COMPLIANCE & LICENSING
+## SECURITY GOVERNANCE, CJIS COMPLIANCE & LICENSING
 
 ```bash
 Copyright (c) 2026 Karnataka State Police (KSP) & Zoho Catalyst Engineering Directorate.
@@ -297,7 +297,7 @@ All Rights Reserved.
 
 Licensed under the **Apache License, Version 2.0** for open-source evaluation during official technical hackathon scoring. Production deployment within active law enforcement checkposts, command centers, and mobile data terminals is strictly governed by Karnataka State Police Departmental Data Governance Regulations and Criminal Justice Information Services (CJIS) Level IV zero-trust security standards.
 
-## SECTION 13.0 // ADDITIONAL DETAILS & FUTURE DEVELOPMENT ROADMAP
+## ADDITIONAL DETAILS & FUTURE DEVELOPMENT ROADMAP
 
 ### 13.1 Additional Technical Details & Architectural Highlights
 * **Zero-Cold-Start Edge Caching**: Utilizes Zoho Catalyst Edge CDN and DataStore query caching to reduce repeat API latency from `42.5ms` down to `< 12ms` across remote law enforcement checkposts in rural districts (e.g., Gadag, Bidar, Chamarajanagar).
@@ -316,5 +316,5 @@ Licensed under the **Apache License, Version 2.0** for open-source evaluation du
 
 ---
 <div align="center">
-  <b>ZONAL INTELLIGENCE ARCHITECTURE // ADVANCED GEOSPATIAL THREAT INTERCEPTION FOR KARNATAKA</b>
+  <b>ADVANCED GEOSPATIAL THREAT INTERCEPTION FOR KARNATAKA</b>
 </div>
